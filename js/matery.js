@@ -79,10 +79,10 @@ $(function () {
 		      let img_width = $(this)['0'].clientWidth;
 			  let img_height = $(this)['0'].clientHeight;
 			  let img_path=$(this)['0'].attributes['0'].nodeValue;
-		      if(img_path.match("../myimages/")){
-					img_path=  "http://pw9t51rq5.bkt.clouddn.com"+img_path.substring(img_path.lastIndexOf('/'));
-					$(this)['0'].attributes['0'].nodeValue=img_path;
-				}
+		    //   if(img_path.match("../myimages/")){
+			// 		img_path=  "http://pw9t51rq5.bkt.clouddn.com"+img_path.substring(img_path.lastIndexOf('/'));
+			// 		$(this)['0'].attributes['0'].nodeValue=img_path;
+			// 	}
 			//console.log($(this))
 				
             // 图片添加阴影
