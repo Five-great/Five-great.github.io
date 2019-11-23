@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="代码测试2, Five-great的博客">
-    <meta name="description" content="汉诺塔游戏                                      时间限制: 1 s｜空间限制: 3">
+    <meta name="keywords" content="简单WiFi控制小车系统（树莓派＋python＋web控制界面), Five-great的博客">
+    <meta name="description" content="    下面是小车           好丑 对不对 ，不过反正可以蛇皮走位就行。     蛇皮走位演示视频： http">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>代码测试2 | Five-great的博客</title>
+    <title>简单WiFi控制小车系统（树莓派＋python＋web控制界面) | Five-great的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -902,13 +902,13 @@ window.Canvas= new Universe(element);</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171467_5A2F10B571AD4B7A6665FFBD7D0E0A19')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        代码测试2
+                        简单WiFi控制小车系统（树莓派＋python＋web控制界面)
                     </div>
                 </div>
             </div>
@@ -931,12 +931,12 @@ window.Canvas= new Universe(element);</script>
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ACM/" target="_blank">
-                                <span class="chip bg-color">ACM</span>
+                            <a href="/tags/树莓派/" target="_blank">
+                                <span class="chip bg-color">树莓派</span>
                             </a>
                         
-                            <a href="/tags/水题/" target="_blank">
-                                <span class="chip bg-color">水题</span>
+                            <a href="/tags/python/" target="_blank">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -944,20 +944,29 @@ window.Canvas= new Universe(element);</script>
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                程序设计
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    <span id="page__date">2018-09-28</sapn>
+                    <span id="page__date">2019-03-09</sapn>
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.4k
+                        1.3k
                     </div>
                     
 
@@ -980,135 +989,201 @@ window.Canvas= new Universe(element);</script>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="汉诺塔游戏"><a href="#汉诺塔游戏" class="headerlink" title="汉诺塔游戏"></a>汉诺塔游戏</h1><pre><code>                                      时间限制: 1 s｜空间限制: 32000 KB</code></pre><p>题目描述 Description</p>
-<p>汉诺塔问题（又称为河内塔问题），是一个大家熟知的问题。在A，B，C三根柱子上，</p>
-<p>有n个不同大小的圆盘（假设半径分别为1-n吧），一开始他们都叠在我A上（如图所示），</p>
-<p>你的目标是在最少的合法移动步数内将所有盘子从A塔移动到C塔。</p>
-<p>游戏中的每一步规则如下：</p>
-<ol>
-<li><p>每一步只允许移动一个盘子（从一根柱子最上方到另一个柱子的最上方）</p>
-</li>
-<li><p>移动的过程中，你必须保证大的盘子不能在小的盘子上方</p>
-</li>
-</ol>
-<p>（小的可以放在大的上面，最大盘子下面不能有任何其他大小的盘子）</p>
-<p>如对于n=3的情况，一个合法的移动序列式：</p>
-<p>1 from A to C</p>
-<p>2 from A to B</p>
-<p>1 from C to B</p>
-<p>3 from A to C</p>
-<p>1 from B to A</p>
-<p>2 from B to C</p>
-<p>1 from A to C</p>
-<p>给出一个数n，求出最少步数的移动序列</p>
-<p>输入描述 Input Description</p>
-<p>一个整数n</p>
-<p>输出描述 Output Description</p>
-<p>第一行一个整数k，代表是最少的移动步数。</p>
-<p>接下来k行，每行一句话，N from X to Y，表示把N号盘从X柱移动到Y柱。X,Y属于{A,B,C}</p>
-<p>样例输入 Sample Input</p>
-<p>3</p>
-<p>样例输出 Sample Output</p>
-<p>7</p>
-<p>1 from A to C</p>
-<p>2 from A to B</p>
-<p>1 from C to B</p>
-<p>3 from A to C</p>
-<p>1 from B to A</p>
-<p>2 from B to C</p>
-<p>1 from A to C</p>
-<p>数据范围及提示 Data Size &amp; Hint</p>
-<p>n&lt;=10</p>
-<p>思路分析：</p>
-<p>我们设定三个柱子A,B,C。我们的目的是将环从A–&gt;C。（A为起始位置，C为目标位置）</p>
-<p>当N=1即一阶时它的路径很简单只需要从A-&gt;C进行移动。</p>
-<p>当N=2时我们需要进行三步：</p>
-<pre><code>               1.小盘 A-&gt;B </code></pre><p>  (假想没有大盘只有小盘，与N=1 的步骤一样，只是目标位置变为了 B)</p>
-<pre><code>               2.大盘 A-&gt;C </code></pre><p>  (大盘上面的小盘到B去了，与N=1 的步骤一样直接到C )</p>
-<pre><code>               3.小盘 B-&gt;C</code></pre><p> (大盘到了C,对于小盘而言,C可以看作无盘，与N=1 的步骤一样，只是起始位置变为 B )</p>
-<p>   (分解一下，小盘从A通过B作为中间目标再到C。可以这样想 </p>
-<p>  小盘下面的大盘目标是C 所以小盘第一次目标则变成B,</p>
-<p>  等到大盘到了目标C ,小盘再到C。</p>
-<p>  则完成将大小盘按小盘在上大盘在下的要求移到C。）</p>
-<p> 当N=3时我们需要进行七步：</p>
-<pre><code>          1. 小盘 A-&gt;C  2.中盘 A-&gt;B  3.小盘  C-&gt;B </code></pre><p>   (假想没有大盘只有小盘和中盘，与N=2 的步骤一样，只是目标位置变为了 B)</p>
-<pre><code>          4. 大盘 A-&gt;C,
-(大盘上面的小盘和中盘都到B去了，与N=1 的步骤一样直接到C )
+                 <p> </p>  <p>下面是小车 </p>  <p> </p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171467_5A2F10B571AD4B7A6665FFBD7D0E0A19"></p>  <p> </p>  <p>好丑 对不对 ，不过反正可以蛇皮走位就行。</p>  <p>   蛇皮走位演示视频： <a href="https://pan.baidu.com/s/1RHHr8bRHWzSEAkrpwu99aw" target="_blank" rel="noopener">https://pan.baidu.com/s/1RHHr8bRHWzSEAkrpwu99aw</a></p>  <p> 只需要 一个 index.html  和Index.py 就可以实现 简单WiFi 控制小车。</p>  <p>需要准备</p>  <p>  python </p>  <p> <span style="color: rgb(243,59,69);">  bottle 库</span></p>  <h3> bottle 安装</h3>  <blockquote>   <p><span style="color: rgb(243,59,69);">命令： pip install bottle</span></p>  </blockquote>  <p><span style="color: rgb(243,59,69);"> </span><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171617_999F86F04AFC276F3F15E6B5C6DEEB4D"></p>  <p> </p>  <p>树莓派控制界面（web客户端）</p>  <p>  index.html </p> 
 
-          5. 小盘 B-&gt;A  6.中盘 B-&gt;C  7.小盘  A-&gt;C</code></pre><p>   (大盘到了C,对于小盘和中盘而言,C可以看作无盘，与N=2 的步骤一样，只是起始位置变为了 B )</p>
-<p>   (分解一下，大盘想从A去C。但上面压着小盘与中盘 ，</p>
-<p>   所以得先把他们移开 并且上面两盘不能移动到C,得移动到B 去</p>
-<p>  就相当于N=2时，起始位置A到目标位置B。待大盘移动到C。</p>
-<p> 当前在B 的小盘和中盘，完全就是执行N=2 的步骤。从当前起始位置B 到目标位置C.)</p>
-<p>如此执行，通过递归方式。代码思路如下：</p>
-<ol>
-<li>对于执行最大盘（n） 到C的操作之前，肯定是?把次大盘（n-1）从A移动到 B<pre><code>    2. 执行最大盘（n） 到C的操作
-    3.对于执行最大盘（n） 到C的操作之后，肯定是?把次大盘（n-1）从B移动到C</code></pre></li>
-</ol>
-<p>   每次只关心上一层，上上层是到了上一层才考虑的事——递归</p>
-<p>题目链接：<a href="http://codevs.cn/problem/3145/" target="_blank" rel="noopener">http://codevs.cn/problem/3145/</a><br>Javascript</p>
-<pre class=" language-javascript"><code class="language-javascript">#include <span class="token operator">&lt;</span>stdio<span class="token punctuation">.</span>h<span class="token operator">></span>
-<span class="token keyword">void</span> <span class="token function">han</span><span class="token punctuation">(</span>int n<span class="token punctuation">,</span> char A<span class="token punctuation">,</span> char B<span class="token punctuation">,</span> char C<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//第一步  对于执行最大盘（n） 到C的操作之前</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第二步  执行最大盘（n） 到C的操作 </span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第三步  对于执行最大盘（n） 到C的操作之后 </span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-int <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    int n<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>Java</p>
-<pre class=" language-java"><code class="language-java">#include <span class="token operator">&lt;</span>stdio<span class="token punctuation">.</span>h<span class="token operator">></span>
-<span class="token keyword">void</span> <span class="token function">han</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">char</span> A<span class="token punctuation">,</span> <span class="token keyword">char</span> B<span class="token punctuation">,</span> <span class="token keyword">char</span> C<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//第一步  对于执行最大盘（n） 到C的操作之前</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第二步  执行最大盘（n） 到C的操作 </span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第三步  对于执行最大盘（n） 到C的操作之后 </span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>C语言</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">void</span> <span class="token function">han</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">char</span> A<span class="token punctuation">,</span> <span class="token keyword">char</span> B<span class="token punctuation">,</span> <span class="token keyword">char</span> C<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//第一步  对于执行最大盘（n） 到C的操作之前</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第二步  执行最大盘（n） 到C的操作 </span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d from %c to %c\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//第三步  对于执行最大盘（n） 到C的操作之后 </span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">han</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+
+<pre class=" language-html"><code class="language-html">
+<span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>遥控树莓派<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://code.jquery.com/jquery.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+        <span class="token selector"><span class="token id">#front</span> </span><span class="token punctuation">{</span>
+            <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">55</span>px<span class="token punctuation">;</span>
+            <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token selector"><span class="token id">#rear</span></span><span class="token punctuation">{</span>
+            <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
+            <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">55</span>px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token selector"><span class="token class">.btn</span></span><span class="token punctuation">{</span>
+             <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#62559f</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                $<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/cmd"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>status<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>front<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-up<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>leftFront<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>stop<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon glyphicon-stop<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>rightFront<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>rear<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-down<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>leftRear<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>左后转<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>rightRear<span class="token punctuation">'</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-lg btn-primary glyphicon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>右后转<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p> </p><br><p>  js脚本解释：</p> 
+
+<pre class=" language-js"><code class="language-js">  <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                $<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/cmd"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>status<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">//表示 按钮对应的id值 会被传入树莓派服务器中，就如同 你在树莓派的命令行（cmd）中输入 id 的值</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+ <p> </p>  <p>树莓派小车控制程序+we服务端</p>  <p> Index.py</p> 
+
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
+<span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span>
+<span class="token keyword">from</span> bottle <span class="token keyword">import</span> get<span class="token punctuation">,</span>post<span class="token punctuation">,</span>run<span class="token punctuation">,</span>request<span class="token punctuation">,</span>template
+
+<span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> sys 
+
+
+<span class="token comment" spellcheck="true">####  定义Car类</span>
+<span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>enab_pin <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">19</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">####  self.enab_pin是使能端的pin</span>
+        self<span class="token punctuation">.</span>inx_pin <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">####  self.inx_pin是控制端in的pin</span>
+        self<span class="token punctuation">.</span>RightAhead_pin <span class="token operator">=</span> self<span class="token punctuation">.</span>inx_pin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>RightBack_pin <span class="token operator">=</span> self<span class="token punctuation">.</span>inx_pin<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>LeftAhead_pin <span class="token operator">=</span> self<span class="token punctuation">.</span>inx_pin<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>LeftBack_pin <span class="token operator">=</span> self<span class="token punctuation">.</span>inx_pin<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">####  分别是右轮前进，右轮退后，左轮前进，左轮退后的pin</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  setup函数初始化端口</span>
+    <span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"begin setup ena enb pin"</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>setwarnings<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> pin <span class="token keyword">in</span> self<span class="token punctuation">.</span>enab_pin<span class="token punctuation">:</span> 
+            GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+            GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">####  初始化使能端pin，设置成高电平</span>
+        pin <span class="token operator">=</span> None
+        <span class="token keyword">for</span> pin <span class="token keyword">in</span> self<span class="token punctuation">.</span>inx_pin<span class="token punctuation">:</span>
+            GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+            GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>LOW<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">####  初始化控制端pin，设置成低电平</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"setup ena enb pin over"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  fornt函数，小车前进</span>
+    <span class="token keyword">def</span> <span class="token function">front</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>RightAhead_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>LeftAhead_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  leftFront函数，小车左拐弯</span>
+    <span class="token keyword">def</span> <span class="token function">leftFront</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>RightAhead_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  rightFront函数，小车右拐弯</span>
+    <span class="token keyword">def</span> <span class="token function">rightFront</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>LeftAhead_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  rear函数，小车后退</span>
+    <span class="token keyword">def</span> <span class="token function">rear</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>RightBack_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>LeftBack_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  leftRear函数，小车左退</span>
+    <span class="token keyword">def</span> <span class="token function">leftRear</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>RightBack_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  rightRear函数，小车右退</span>
+    <span class="token keyword">def</span> <span class="token function">rightRear</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>self<span class="token punctuation">.</span>LeftBack_pin<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">####  定义main主函数</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    car <span class="token operator">=</span> Car<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> status <span class="token operator">==</span> <span class="token string">"front"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>front<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"leftFront"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>leftFront<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"rightFront"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>rightFront<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"rear"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>rear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"leftRear"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>leftRear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"rightRear"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>rightRear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> status <span class="token operator">==</span> <span class="token string">"stop"</span><span class="token punctuation">:</span>
+        car<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span>      
+
+
+
+
+@get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> template<span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span>
+@post<span class="token punctuation">(</span><span class="token string">"/cmd"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">cmd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    adss<span class="token operator">=</span>request<span class="token punctuation">.</span>body<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"按下了按钮:"</span><span class="token operator">+</span>adss<span class="token punctuation">)</span>
+    main<span class="token punctuation">(</span>adss<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">"OK"</span>
+run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"0.0.0.0"</span><span class="token punctuation">)</span>
+</code></pre>
+<p> </p>  <p>web服务端 实际就这点代码， 主要是 bottle 库的强大，（实际控制的小车的代码 根据自己的需求改就行了）</p>  
+
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> bottle <span class="token keyword">import</span> get<span class="token punctuation">,</span>post<span class="token punctuation">,</span>run<span class="token punctuation">,</span>request<span class="token punctuation">,</span>template
+
+@get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> template<span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span> 
+<span class="token comment" spellcheck="true">#### 这个是 客户端请求 服务端就发给一个 index.html 控制界面给客户端</span>
+@post<span class="token punctuation">(</span><span class="token string">"/cmd"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">cmd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    adss<span class="token operator">=</span>request<span class="token punctuation">.</span>body<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#### 接收到 客户端 发过来的数据</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"按下了按钮:"</span><span class="token operator">+</span>adss<span class="token punctuation">)</span>
+    main<span class="token punctuation">(</span>adss<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#### 传值到主函数 实现对应功能</span>
+    <span class="token keyword">return</span> <span class="token string">"OK"</span>
+run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"0.0.0.0"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#### 开启服务端 </span>
+</code></pre>
+  <p> </p>  <p>运行 index.py 开启服务器：</p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171707_6C9E2E8EBBBD91957051E40B639B857E"></p>  <p>然后打开浏览器（手机浏览器也可以但必须在同一个局域网内） 输入 树莓派的ip 我的是 192.168.191.4：8080</p>  <p>有可能 打开比较慢  10分钟内吧 哈哈哈（我第一次打开 就用了好久 都以为没有成功）</p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171844_5A2F10B571AD4B7A6665FFBD7D0E0A19"></p>  <p>手机端输入ip</p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577172142_5A2F10B571AD4B7A6665FFBD7D0E0A19"></p>  <p>登录成功！！！</p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577172207_329DE1FA0853595C53E2490CB8F18E33"></p>  <p> </p>  <p> </p>  <p>输入之后  服务器会给你抛出一个 index.html 控制文件。</p>  <p>然后就可以点击按键 控制小车了  下面是 服务端中反馈</p>  <p> </p>  <p><img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577172297_77FCF94413B1F270EF9A5546768A4306"></p>  <p>框架搭好后，根据自己需求更改 。</p>  <p> </p>  <h2><span style="color: rgb(243,59,69);">补充说明一下啊 因为我改过系统的语言和编码设置 （支持utf-8）</span></h2>  <h2><span style="color: rgb(243,59,69);">  详情 ：  </span><a href="https://blog.csdn.net/qq_41923622/article/details/86558600" target="_blank" rel="noopener">树莓派 设置系统中文 并安装中文输入法</a></h2>  <p>当很多人遇到</p>  <p><span style="color: rgb(243,59,69);">UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xe6 in position</span> 的错误，原因是python的str默认是ascii编码，和unicode编码冲突，就会报这个标题错误，解决办法是</p>  <p>1. 开头添加</p>  <p>                          import sys</p>  <p>                           reload(sys)</p>  <p>                           sys.setdefaultencoding(‘utf8’) </p>  <p> </p>  <h3><span style="color: rgb(51,153,234);">2.暴力一点，把所有中文字符 汉字什么的 包括注释了的 都统统删掉 也可以解决</span></h3>  <h2><span style="color: rgb(51,153,234);"> </span></h2>  <h2><span> 还有遇到 bottle 下载安装后 ，运行说 没有 安***ottle  可能是 你把 bottle 安装到 python 2.7 环境下，而在python3 环境下找不到。</span></h2>  <p><span>解决办法：</span></p>  <p><span>1 在命令行中 用对应pythonX  环境下运行</span></p>  <p><span>2.在执行脚本代码前 手动引包（</span><span style="color: rgb(243,59,69);">得找到bottle 安装路径</span><span>）</span></p>  <p> </p>  
 
             </div>
             <hr/>
@@ -1256,7 +1331,7 @@ int <span class="token function">main</span><span class="token punctuation">(</s
                     </span>
                     <a href="https://fivecc.cn" class="b-link-green">Five-great的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/dai-ma-ce-shi-2.html" class="b-link-green">代码测试2</a>
+                    <a href="/jian-dan-wifi-xiao-che.html" class="b-link-green">简单WiFi控制小车系统（树莓派＋python＋web控制界面)</a>
                 </p>
             </div>
         </div>
@@ -1572,21 +1647,76 @@ settime
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/tong-shi-bu-shu-coding-yu-github.html">
+                <a href="/yi-kuan-ku-xuan-de-dong-tai-bei-jing.html">
                     <div class="card-image">
                         
+                        <img src="/medias/images/20190313165424318.png" class="responsive-img" alt="一款酷炫的动态背景">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="同时部署coding与github">
-                        
-                        <span class="card-title">同时部署coding与github</span>
+                        <span class="card-title">一款酷炫的动态背景</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">前言之前我是把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托</div>
+                    <div class="summary"> 一款酷炫的动态背景(h5 canvas+js) 
+
+    废话不多说 ，分享一款酷炫的页面动态背景 效果见下图。
+
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/canvas/" target="_blank">
+                        <span class="chip bg-color">canvas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/zhu-ti-shuo-ming.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="主题说明">
+                        
+                        <span class="card-title">主题说明</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">hexo-theme-matery      
+English Document | 演示示例
+
+这是一个采用Mater</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1604,56 +1734,6 @@ settime
                     
                     <a href="/tags/Hexo/" target="_blank">
                         <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/ce-shi.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
-                        
-                        <span class="card-title">测试</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">#测试这是我的测试文章:)这是我的测试文章:)这是我的测试文章:)
-写作介绍1，字体介绍这是斜体 或 这也是斜体这是粗体</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            five
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ACM/" target="_blank">
-                        <span class="chip bg-color">ACM</span>
-                    </a>
-                    
-                    <a href="/tags/水题/" target="_blank">
-                        <span class="chip bg-color">水题</span>
-                    </a>
-                    
-                    <a href="/tags/测试/" target="_blank">
-                        <span class="chip bg-color">测试</span>
                     </a>
                     
                 </div>
