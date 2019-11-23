@@ -33,8 +33,227 @@
         
     </style>
 
+<style>
+#loading {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #f3815e;
+    overflow-y: hidden;
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 998;
+  }
+  .loadingImage,.loadingImage2,.loadingImage3 {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: #2e98df;
+      border-radius: 35px;
+      animation: loadingImage 3.0s infinite linear;
+        z-index: 999;
+  }
+   .loadingImage2{  animation: loadingImage2 1.5s infinite linear;} 
+  .loadingImage::after {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-top: 8px solid #b160d1;
+      border-bottom: 8px solid #5e88ec;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent; 
+      border-radius: 60px;
+      content: '';
+      top: -15px;
+      left: -15px;
+      animation: loadingImage_after 3.0s infinite linear;
+  }
 
+  .loadingImage2::after {
+      position: absolute;
+      width: 90px;
+      height: 90px; 
+      border-left: 8px solid#b160d1 ;
+      border-right: 8px solid #5e88ec;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-radius: 90px;
+      content: '';
+      top: -30px;
+      left: -30px;
+      animation: loadingImage_after2 3.s infinite linear;
+  }
 
+  .loadingImage3::after {
+      position: absolute;
+      width: 120px;
+      height: 120px; 
+      border-top: 8px solid#b160d1 ;
+      border-bottom: 8px solid #5e88ec;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      border-radius: 120px;
+      content: '';
+      top: -45px;
+      left: -45px;
+      /* animation: loadingImage_after 1.s infinite linear; */
+  }
+  
+  
+    @keyframes loadingImage {
+      0% {
+          transform: rotate(0deg);
+      }
+  
+      50% {
+          transform: rotate(180deg);
+          background: #2ecc71;
+      }
+  
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+  @keyframes loadingImage2 {
+      0% {
+          transform: rotate(0deg);
+      }
+  
+      50% {
+          transform: rotate(180deg);
+          background: #2ecc71;
+      }
+  
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+  
+  @keyframes loadingImage_after {
+      0% {
+          
+      }
+      50% {
+           border-top: 8px solid #b160d1;
+          border-bottom: 8px solid #5e88ec;
+      }
+      100% {
+         border-top: 8px solid #5e88ec;
+          border-bottom: 8px solid #b160d1;
+      }
+  }
+
+  @keyframes loadingImage_after2 {
+      0% {
+          
+      }
+  
+      50% {
+          border-left: 8px solid #b160d1;
+          border-right: 8px solid #5e88ec; 
+      }
+  
+      100% {
+         
+          border-left: 8px solid #5e88ec;
+          border-right: 8px solid #b160d1;
+      }
+  } 
+  
+  
+  .fv_bounce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+      color: white;
+    height: 100%;
+    font: normal bold 5rem "Product Sans", sans-serif;
+    white-space: nowrap;
+    
+  }
+  
+  .fv_letter { 
+    top: 200px;
+    animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
+    display: inline-block;
+    transform: translate3d(0, 0, 0);
+    margin-top: 0.5em;
+    text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+    font: normal 500 5rem 'Varela Round', sans-serif;
+  }
+  @media only screen and (min-width: 600px) and (max-width: 992px) {
+    .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
+            display: inline-block;
+            transform: translate3d(0, 0, 0);
+            margin-top: 0.5em;
+            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+            font: normal 500 4.5rem 'Varela Round', sans-serif;
+          }
+  }
+  
+  @media only screen and (max-width: 601px) {
+     .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
+            display: inline-block;
+            transform: translate3d(0, 0, 0);
+            margin-top: 0.5em;
+            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+            font: normal 500 3.4rem 'Varela Round', sans-serif;
+          }
+  }
+  
+  .fv_letter:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .fv_letter:nth-child(2) {
+    animation-delay: 0.083333333s;
+  }
+  .fv_letter:nth-child(3) {
+    animation-delay: 0.1266666667s;
+  }
+  .fv_letter:nth-child(4) {
+    animation-delay: 0.145s;
+  }
+  .fv_letter:nth-child(5) {
+    animation-delay: 0.1833333333s;
+  }
+  .fv_letter:nth-child(6) {
+    animation-delay: 0.2116666667s;
+  }
+  .fv_letter:nth-child(7) {
+    animation-delay: 0.25166666667s;
+  }
+  
+  @keyframes fv_bounce {
+    0% {
+      transform: translate3d(0, 0, 0);
+      text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+    }
+    100% {
+      transform: translate3d(0, -1em, 0);
+      text-shadow: rgba(255, 255, 255, 0.4) 0 1em 0.35em;
+    }
+  }
+  
+</style>  
+  <div id="loading">
+        <div class="loadingImage3"><div class="loadingImage2"><div class="loadingImage"></div></div></div>  
+        <div class="fv_bounce">
+                <span class="fv_letter"><br><br><br>F</span>
+                <span class="fv_letter"><br><br><br>i</span>
+                <span class="fv_letter"><br><br><br>v</span>
+                <span class="fv_letter"><br><br><br>e</span>
+                <span class="fv_letter"><br><br><br>-</span>
+                <span class="fv_letter"><br><br><br>gr</span>
+                <span class="fv_letter"><br><br><br>ea</span>
+                <span class="fv_letter"><br><br><br>t</span>
+        <div>
+      
+    </div>
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>	
 	
 
@@ -74,10 +293,10 @@
       });
     </script>
 
-
+</div></div>
 
 <body>
-
+      
 
 <style>
   @media only screen and (max-width: 422px){
@@ -1984,6 +2203,6 @@ $(function () {
     </script>
 </body>
 <script>
-$("#loading").fadeOut(5000);
+$("#loading").fadeOut(3000);
 </script>
 </html>
