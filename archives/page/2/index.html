@@ -15,7 +15,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>归档 | Five-great的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
-
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
@@ -23,221 +22,12 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
+    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
     <style type="text/css">
         
     </style>
-
-<style>
-#loading {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background: #f3815e;
-    overflow-y: hidden;
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 998;
-  }
-  .loadingImage,.loadingImage2,.loadingImage3 {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: #2e98df;
-      border-radius: 35px;
-      animation: loadingImage 3.0s infinite linear;
-        z-index: 999;
-  }
-   .loadingImage2{  animation: loadingImage2 1.5s infinite linear;} 
-  .loadingImage::after {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-top: 8px solid #b160d1;
-      border-bottom: 8px solid #5e88ec;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent; 
-      border-radius: 60px;
-      content: '';
-      top: -15px;
-      left: -15px;
-      animation: loadingImage_after 3.0s infinite linear;
-  }
-
-  .loadingImage2::after {
-      position: absolute;
-      width: 90px;
-      height: 90px; 
-      border-left: 8px solid#b160d1 ;
-      border-right: 8px solid #5e88ec;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-radius: 90px;
-      content: '';
-      top: -30px;
-      left: -30px;
-      animation: loadingImage_after2 3.s infinite linear;
-  }
-
-  .loadingImage3::after {
-      position: absolute;
-      width: 120px;
-      height: 120px; 
-      border-top: 8px solid#b160d1 ;
-      border-bottom: 8px solid #5e88ec;
-      border-right: 8px solid transparent;
-      border-left: 8px solid transparent;
-      border-radius: 120px;
-      content: '';
-      top: -45px;
-      left: -45px;
-      /* animation: loadingImage_after 1.s infinite linear; */
-  }
-  
-  
-    @keyframes loadingImage {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  @keyframes loadingImage2 {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  
-  @keyframes loadingImage_after {
-      0% {
-          
-      }
-      50% {
-           border-top: 8px solid #b160d1;
-          border-bottom: 8px solid #5e88ec;
-      }
-      100% {
-         border-top: 8px solid #5e88ec;
-          border-bottom: 8px solid #b160d1;
-      }
-  }
-
-  @keyframes loadingImage_after2 {
-      0% {
-          
-      }
-  
-      50% {
-          border-left: 8px solid #b160d1;
-          border-right: 8px solid #5e88ec; 
-      }
-  
-      100% {
-         
-          border-left: 8px solid #5e88ec;
-          border-right: 8px solid #b160d1;
-      }
-  } 
-  
-  
-  .fv_bounce {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-      color: white;
-    height: 100%;
-    font: normal bold 5rem "Product Sans", sans-serif;
-    white-space: nowrap;
-    
-  }
-  
-  .fv_letter { 
-    top: 200px;
-    animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-    display: inline-block;
-    transform: translate3d(0, 0, 0);
-    margin-top: 0.5em;
-    text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    font: normal 500 5rem 'Varela Round', sans-serif;
-  }
-  @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 4.5rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  @media only screen and (max-width: 601px) {
-     .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 3.4rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  .fv_letter:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .fv_letter:nth-child(2) {
-    animation-delay: 0.083333333s;
-  }
-  .fv_letter:nth-child(3) {
-    animation-delay: 0.1266666667s;
-  }
-  .fv_letter:nth-child(4) {
-    animation-delay: 0.145s;
-  }
-  .fv_letter:nth-child(5) {
-    animation-delay: 0.1833333333s;
-  }
-  .fv_letter:nth-child(6) {
-    animation-delay: 0.2116666667s;
-  }
-  .fv_letter:nth-child(7) {
-    animation-delay: 0.25166666667s;
-  }
-  
-  @keyframes fv_bounce {
-    0% {
-      transform: translate3d(0, 0, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    }
-    100% {
-      transform: translate3d(0, -1em, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 1em 0.35em;
-    }
-  }
-  
-</style>  
-  <div id="loading">
-        <div class="loadingImage3"><div class="loadingImage2"><div class="loadingImage"></div></div></div>  
+  <div id="fv_loading">
+        <div class="fv_loadingBorder2"><div class="fv_loadingBorder3"><div class="fv_loadingBorder"></div></div></div>  
         <div class="fv_bounce">
                 <span class="fv_letter"><br><br><br>F</span>
                 <span class="fv_letter"><br><br><br>i</span>
@@ -248,7 +38,6 @@
                 <span class="fv_letter"><br><br><br>ea</span>
                 <span class="fv_letter"><br><br><br>t</span>
         <div>
-      
     </div>
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>	
 	
@@ -288,8 +77,8 @@
         enable_page_level_ads: true
       });
     </script>
+</div></div></head>
 
-</div></div>
 
 <body>
       
@@ -1195,7 +984,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         calendar: [{
             left: 'center',
-            range: ["2018-11-24", "2019-11-24"],
+            range: ["2020-01-13", "2021-01-13"],
             cellSize: [13, 13],
             splitLine: {
                 show: false
@@ -1221,7 +1010,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             type: 'heatmap',
             coordinateSystem: 'calendar',
             calendarIndex: 0,
-            data: [["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 0], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 0], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 0], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 0], ["2018-12-19", 0], ["2018-12-20", 0], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 0], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 0], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 0], ["2019-01-24", 0], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 1], ["2019-03-10", 0], ["2019-03-11", 0], ["2019-03-12", 0], ["2019-03-13", 0], ["2019-03-14", 0], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 0], ["2019-03-21", 0], ["2019-03-22", 0], ["2019-03-23", 0], ["2019-03-24", 0], ["2019-03-25", 0], ["2019-03-26", 0], ["2019-03-27", 0], ["2019-03-28", 0], ["2019-03-29", 0], ["2019-03-30", 0], ["2019-03-31", 0], ["2019-04-01", 0], ["2019-04-02", 0], ["2019-04-03", 0], ["2019-04-04", 0], ["2019-04-05", 0], ["2019-04-06", 0], ["2019-04-07", 0], ["2019-04-08", 0], ["2019-04-09", 0], ["2019-04-10", 0], ["2019-04-11", 0], ["2019-04-12", 0], ["2019-04-13", 0], ["2019-04-14", 0], ["2019-04-15", 0], ["2019-04-16", 0], ["2019-04-17", 0], ["2019-04-18", 0], ["2019-04-19", 0], ["2019-04-20", 0], ["2019-04-21", 0], ["2019-04-22", 0], ["2019-04-23", 0], ["2019-04-24", 0], ["2019-04-25", 0], ["2019-04-26", 0], ["2019-04-27", 0], ["2019-04-28", 0], ["2019-04-29", 0], ["2019-04-30", 0], ["2019-05-01", 0], ["2019-05-02", 0], ["2019-05-03", 0], ["2019-05-04", 0], ["2019-05-05", 0], ["2019-05-06", 0], ["2019-05-07", 0], ["2019-05-08", 0], ["2019-05-09", 0], ["2019-05-10", 0], ["2019-05-11", 0], ["2019-05-12", 0], ["2019-05-13", 0], ["2019-05-14", 0], ["2019-05-15", 0], ["2019-05-16", 0], ["2019-05-17", 0], ["2019-05-18", 0], ["2019-05-19", 0], ["2019-05-20", 0], ["2019-05-21", 0], ["2019-05-22", 0], ["2019-05-23", 0], ["2019-05-24", 0], ["2019-05-25", 0], ["2019-05-26", 0], ["2019-05-27", 0], ["2019-05-28", 0], ["2019-05-29", 1], ["2019-05-30", 0], ["2019-05-31", 0], ["2019-06-01", 0], ["2019-06-02", 0], ["2019-06-03", 0], ["2019-06-04", 0], ["2019-06-05", 0], ["2019-06-06", 0], ["2019-06-07", 0], ["2019-06-08", 0], ["2019-06-09", 0], ["2019-06-10", 0], ["2019-06-11", 0], ["2019-06-12", 0], ["2019-06-13", 0], ["2019-06-14", 0], ["2019-06-15", 0], ["2019-06-16", 0], ["2019-06-17", 0], ["2019-06-18", 0], ["2019-06-19", 0], ["2019-06-20", 0], ["2019-06-21", 0], ["2019-06-22", 0], ["2019-06-23", 0], ["2019-06-24", 0], ["2019-06-25", 0], ["2019-06-26", 0], ["2019-06-27", 0], ["2019-06-28", 0], ["2019-06-29", 0], ["2019-06-30", 0], ["2019-07-01", 0], ["2019-07-02", 0], ["2019-07-03", 0], ["2019-07-04", 0], ["2019-07-05", 0], ["2019-07-06", 0], ["2019-07-07", 0], ["2019-07-08", 0], ["2019-07-09", 0], ["2019-07-10", 0], ["2019-07-11", 0], ["2019-07-12", 0], ["2019-07-13", 0], ["2019-07-14", 0], ["2019-07-15", 0], ["2019-07-16", 0], ["2019-07-17", 0], ["2019-07-18", 0], ["2019-07-19", 0], ["2019-07-20", 0], ["2019-07-21", 0], ["2019-07-22", 0], ["2019-07-23", 0], ["2019-07-24", 0], ["2019-07-25", 0], ["2019-07-26", 0], ["2019-07-27", 0], ["2019-07-28", 0], ["2019-07-29", 0], ["2019-07-30", 0], ["2019-07-31", 0], ["2019-08-01", 0], ["2019-08-02", 0], ["2019-08-03", 0], ["2019-08-04", 0], ["2019-08-05", 0], ["2019-08-06", 0], ["2019-08-07", 0], ["2019-08-08", 0], ["2019-08-09", 0], ["2019-08-10", 0], ["2019-08-11", 0], ["2019-08-12", 0], ["2019-08-13", 0], ["2019-08-14", 0], ["2019-08-15", 0], ["2019-08-16", 0], ["2019-08-17", 0], ["2019-08-18", 0], ["2019-08-19", 0], ["2019-08-20", 0], ["2019-08-21", 0], ["2019-08-22", 0], ["2019-08-23", 0], ["2019-08-24", 0], ["2019-08-25", 0], ["2019-08-26", 0], ["2019-08-27", 0], ["2019-08-28", 0], ["2019-08-29", 0], ["2019-08-30", 0], ["2019-08-31", 0], ["2019-09-01", 0], ["2019-09-02", 0], ["2019-09-03", 0], ["2019-09-04", 0], ["2019-09-05", 0], ["2019-09-06", 0], ["2019-09-07", 0], ["2019-09-08", 0], ["2019-09-09", 0], ["2019-09-10", 0], ["2019-09-11", 0], ["2019-09-12", 0], ["2019-09-13", 0], ["2019-09-14", 0], ["2019-09-15", 0], ["2019-09-16", 0], ["2019-09-17", 0], ["2019-09-18", 0], ["2019-09-19", 0], ["2019-09-20", 0], ["2019-09-21", 0], ["2019-09-22", 0], ["2019-09-23", 0], ["2019-09-24", 0], ["2019-09-25", 0], ["2019-09-26", 0], ["2019-09-27", 0], ["2019-09-28", 1], ["2019-09-29", 0], ["2019-09-30", 0], ["2019-10-01", 0], ["2019-10-02", 0], ["2019-10-03", 0], ["2019-10-04", 0], ["2019-10-05", 0], ["2019-10-06", 0], ["2019-10-07", 0], ["2019-10-08", 0], ["2019-10-09", 0], ["2019-10-10", 0], ["2019-10-11", 0], ["2019-10-12", 0], ["2019-10-13", 0], ["2019-10-14", 0], ["2019-10-15", 0], ["2019-10-16", 0], ["2019-10-17", 0], ["2019-10-18", 0], ["2019-10-19", 0], ["2019-10-20", 0], ["2019-10-21", 0], ["2019-10-22", 0], ["2019-10-23", 0], ["2019-10-24", 0], ["2019-10-25", 0], ["2019-10-26", 0], ["2019-10-27", 0], ["2019-10-28", 0], ["2019-10-29", 0], ["2019-10-30", 0], ["2019-10-31", 0], ["2019-11-01", 0], ["2019-11-02", 0], ["2019-11-03", 0], ["2019-11-04", 0], ["2019-11-05", 0], ["2019-11-06", 0], ["2019-11-07", 0], ["2019-11-08", 0], ["2019-11-09", 0], ["2019-11-10", 0], ["2019-11-11", 0], ["2019-11-12", 0], ["2019-11-13", 0], ["2019-11-14", 0], ["2019-11-15", 0], ["2019-11-16", 0], ["2019-11-17", 0], ["2019-11-18", 0], ["2019-11-19", 0], ["2019-11-20", 0], ["2019-11-21", 0], ["2019-11-22", 0], ["2019-11-23", 0], ["2019-11-24", 0]]
+            data: [["2020-01-13", 0], ["2020-01-14", 0], ["2020-01-15", 0], ["2020-01-16", 0], ["2020-01-17", 0], ["2020-01-18", 0], ["2020-01-19", 0], ["2020-01-20", 0], ["2020-01-21", 0], ["2020-01-22", 0], ["2020-01-23", 0], ["2020-01-24", 0], ["2020-01-25", 0], ["2020-01-26", 0], ["2020-01-27", 0], ["2020-01-28", 0], ["2020-01-29", 0], ["2020-01-30", 0], ["2020-01-31", 0], ["2020-02-01", 0], ["2020-02-02", 0], ["2020-02-03", 0], ["2020-02-04", 0], ["2020-02-05", 0], ["2020-02-06", 0], ["2020-02-07", 0], ["2020-02-08", 0], ["2020-02-09", 0], ["2020-02-10", 0], ["2020-02-11", 0], ["2020-02-12", 0], ["2020-02-13", 0], ["2020-02-14", 0], ["2020-02-15", 0], ["2020-02-16", 0], ["2020-02-17", 0], ["2020-02-18", 0], ["2020-02-19", 0], ["2020-02-20", 0], ["2020-02-21", 0], ["2020-02-22", 0], ["2020-02-23", 0], ["2020-02-24", 0], ["2020-02-25", 0], ["2020-02-26", 0], ["2020-02-27", 0], ["2020-02-28", 0], ["2020-02-29", 0], ["2020-03-01", 0], ["2020-03-02", 0], ["2020-03-03", 0], ["2020-03-04", 0], ["2020-03-05", 0], ["2020-03-06", 0], ["2020-03-07", 0], ["2020-03-08", 0], ["2020-03-09", 0], ["2020-03-10", 0], ["2020-03-11", 0], ["2020-03-12", 0], ["2020-03-13", 0], ["2020-03-14", 0], ["2020-03-15", 0], ["2020-03-16", 0], ["2020-03-17", 0], ["2020-03-18", 0], ["2020-03-19", 0], ["2020-03-20", 0], ["2020-03-21", 0], ["2020-03-22", 0], ["2020-03-23", 0], ["2020-03-24", 0], ["2020-03-25", 0], ["2020-03-26", 0], ["2020-03-27", 0], ["2020-03-28", 0], ["2020-03-29", 0], ["2020-03-30", 0], ["2020-03-31", 0], ["2020-04-01", 0], ["2020-04-02", 0], ["2020-04-03", 0], ["2020-04-04", 0], ["2020-04-05", 0], ["2020-04-06", 0], ["2020-04-07", 0], ["2020-04-08", 0], ["2020-04-09", 0], ["2020-04-10", 0], ["2020-04-11", 0], ["2020-04-12", 0], ["2020-04-13", 0], ["2020-04-14", 0], ["2020-04-15", 0], ["2020-04-16", 0], ["2020-04-17", 0], ["2020-04-18", 0], ["2020-04-19", 0], ["2020-04-20", 0], ["2020-04-21", 0], ["2020-04-22", 0], ["2020-04-23", 0], ["2020-04-24", 0], ["2020-04-25", 0], ["2020-04-26", 0], ["2020-04-27", 0], ["2020-04-28", 0], ["2020-04-29", 0], ["2020-04-30", 0], ["2020-05-01", 0], ["2020-05-02", 0], ["2020-05-03", 0], ["2020-05-04", 0], ["2020-05-05", 0], ["2020-05-06", 0], ["2020-05-07", 0], ["2020-05-08", 0], ["2020-05-09", 0], ["2020-05-10", 0], ["2020-05-11", 0], ["2020-05-12", 0], ["2020-05-13", 0], ["2020-05-14", 0], ["2020-05-15", 0], ["2020-05-16", 0], ["2020-05-17", 0], ["2020-05-18", 0], ["2020-05-19", 0], ["2020-05-20", 0], ["2020-05-21", 0], ["2020-05-22", 0], ["2020-05-23", 0], ["2020-05-24", 0], ["2020-05-25", 0], ["2020-05-26", 0], ["2020-05-27", 0], ["2020-05-28", 0], ["2020-05-29", 0], ["2020-05-30", 0], ["2020-05-31", 0], ["2020-06-01", 0], ["2020-06-02", 0], ["2020-06-03", 0], ["2020-06-04", 0], ["2020-06-05", 0], ["2020-06-06", 0], ["2020-06-07", 0], ["2020-06-08", 0], ["2020-06-09", 0], ["2020-06-10", 0], ["2020-06-11", 0], ["2020-06-12", 0], ["2020-06-13", 0], ["2020-06-14", 0], ["2020-06-15", 0], ["2020-06-16", 0], ["2020-06-17", 0], ["2020-06-18", 0], ["2020-06-19", 0], ["2020-06-20", 0], ["2020-06-21", 0], ["2020-06-22", 0], ["2020-06-23", 0], ["2020-06-24", 0], ["2020-06-25", 0], ["2020-06-26", 0], ["2020-06-27", 0], ["2020-06-28", 0], ["2020-06-29", 0], ["2020-06-30", 0], ["2020-07-01", 0], ["2020-07-02", 0], ["2020-07-03", 0], ["2020-07-04", 0], ["2020-07-05", 0], ["2020-07-06", 0], ["2020-07-07", 0], ["2020-07-08", 0], ["2020-07-09", 0], ["2020-07-10", 0], ["2020-07-11", 0], ["2020-07-12", 0], ["2020-07-13", 0], ["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0], ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0], ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0], ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0], ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0], ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0], ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0], ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0], ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0], ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0], ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0], ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0], ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0], ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0], ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0], ["2020-11-08", 0], ["2020-11-09", 0], ["2020-11-10", 0], ["2020-11-11", 0], ["2020-11-12", 0], ["2020-11-13", 0], ["2020-11-14", 0], ["2020-11-15", 0], ["2020-11-16", 0], ["2020-11-17", 0], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0], ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 0], ["2020-12-01", 0], ["2020-12-02", 0], ["2020-12-03", 0], ["2020-12-04", 0], ["2020-12-05", 0], ["2020-12-06", 0], ["2020-12-07", 0], ["2020-12-08", 0], ["2020-12-09", 0], ["2020-12-10", 0], ["2020-12-11", 0], ["2020-12-12", 0], ["2020-12-13", 0], ["2020-12-14", 0], ["2020-12-15", 0], ["2020-12-16", 0], ["2020-12-17", 0], ["2020-12-18", 0], ["2020-12-19", 0], ["2020-12-20", 0], ["2020-12-21", 0], ["2020-12-22", 0], ["2020-12-23", 0], ["2020-12-24", 0], ["2020-12-25", 0], ["2020-12-26", 0], ["2020-12-27", 0], ["2020-12-28", 1], ["2020-12-29", 1], ["2020-12-30", 0], ["2020-12-31", 0], ["2021-01-01", 0], ["2021-01-02", 0], ["2021-01-03", 0], ["2021-01-04", 0], ["2021-01-05", 0], ["2021-01-06", 0], ["2021-01-07", 0], ["2021-01-08", 0], ["2021-01-09", 0], ["2021-01-10", 0], ["2021-01-11", 0], ["2021-01-12", 0], ["2021-01-13", 0]]
         }]
 
     };
@@ -1240,7 +1029,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2018">2018</a>
+                <a href="/archives/2019">2019</a>
             </div>
             
 
@@ -1248,35 +1037,96 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2018/09">09</a>
+                <a href="/archives/2019/05">05</a>
             </div>
             
 
             
             <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>28</span>
+                <span>23</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/han-nuo-ta-you-xi.html">
+                        <a href="/mei-li-xu-lie-dong-tai-gui-hua.html">
                             <div class="card-image">
                                 
+                                <img src="https://static.nowcoder.com/images/res/logo/logo-v3.png" class="responsive-img" alt="美丽序列（动态规划）">
                                 
-                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="汉诺塔游戏（递归与非递归详解）">
-                                
-                                <span class="card-title">汉诺塔游戏（递归与非递归详解）</span>
+                                <span class="card-title">美丽序列（动态规划）</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    汉诺塔游戏​                                                          时间限制: 1 s｜空间限制: 
+                                                                                      &#x7F8E;&#x4E3D;&#x5E8F;&#x521
                                 
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/ACM/"><span class="chip bg-color">ACM</span></a>
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                            <a href="/tags/动态规划/"><span class="chip bg-color">动态规划</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>23</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/niu-niu-de-hui-wen-chuan-qu-jian-dp.html">
+                            <div class="card-image">
+                                
+                                <img src="https://static.nowcoder.com/images/res/logo/logo-v3.png" class="responsive-img" alt="牛牛的回文串（区间dp）">
+                                
+                                <span class="card-title">牛牛的回文串（区间dp）</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                          &#x9898;&#x76EE;&#x63CF;&#x8FF0;   &#x725B;&#x725B;&#x559C;&#x6B22;&#x56DE
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
                                 </span>
                                 <span class="publish-author">
                                     
@@ -1296,9 +1146,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             
                             <a href="/tags/ACM/"><span class="chip bg-color">ACM</span></a>
                             
-                            <a href="/tags/水题/"><span class="chip bg-color">水题</span></a>
-                            
-                            <a href="/tags/规律/"><span class="chip bg-color">规律</span></a>
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
                             
                         </div>
                         
@@ -1317,36 +1165,277 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
             <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>28</span>
+                <span>22</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/ce-shi.html">
+                        <a href="/sdut3565feedthemonkey-you-xian-zhi-2-dp.html">
                             <div class="card-image">
                                 
+                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="sdut3565Feedthemonkey(有限制(2)dp)">
                                 
-                                <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
-                                
-                                <span class="card-title">测试</span>
+                                <span class="card-title">sdut3565Feedthemonkey(有限制(2)dp)</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    #测试这是我的测试文章:)这是我的测试文章:)这是我的测试文章:)
-写作介绍1，字体介绍这是斜体 或 这也是斜体这是粗体这是加粗斜体这是删除线
-2，分级标题一级
+                                    1642: &#x9898;&#x76EE; D Feed the monkey &#x9898;&#x76EE;&#x63CF;&#x8FF0;  &#x72
                                 
                             </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-22
                                 </span>
                                 <span class="publish-author">
                                     
-                                    <i class="fa fa-user fa-fw"></i>
-                                    five
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                            <a href="/tags/动态规划/"><span class="chip bg-color">动态规划</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>22</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/lan-qiao-bei-li-jie-shi-ti-fen-kao-chang-dfs.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="蓝桥杯历届试题分考场(DFS）">
+                                
+                                <span class="card-title">蓝桥杯历届试题分考场(DFS）</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                       &#x95EE;&#x9898; 1874: [&#x84DD;&#x6865;&#x676F;][2017&#x5E74;&#x7B2C;&#x516B
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-22
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                            <a href="/tags/深搜/"><span class="chip bg-color">深搜</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>22</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/sdut3562proxy-di-jie-si-te-la-fan-xiang-jian-shu.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="sdut3562Proxy(迪杰斯特拉+反向建树)">
+                                
+                                <span class="card-title">sdut3562Proxy(迪杰斯特拉+反向建树)</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                       http://acm.sdut.edu.cn/onlinejudge2/index.php/Home/Index/problemdetail/pid/35
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-22
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/搜索/"><span class="chip bg-color">搜索</span></a>
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>14</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/lan-qiao-bei-zi-fu-chuan-tong-ji-mei-ju-duan-duan-20-xing.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="蓝桥杯字符串统计(枚举短短20行)">
+                                
+                                <span class="card-title">蓝桥杯字符串统计(枚举短短20行)</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                      &#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;n&#x7684;&#x5B57;&#x7B
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-14
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                            <a href="/tags/蓝桥杯/"><span class="chip bg-color">蓝桥杯</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>09</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/acm-sheng-sai-e-ti-zui-chang-de-di-zeng-zi-xu-lie-dong-tai-gui-hua-zui-chang-di-zeng-zi-xu-lie.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ACM省赛E题最长的递增子序列(动态规划+最长递增子序列)">
+                                
+                                <span class="card-title">ACM省赛E题最长的递增子序列(动态规划+最长递增子序列)</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                       &#x6700;&#x957F;&#x7684;&#x9012;&#x589E;&#x5B50;&#x5E8F;&#x5217; Bobo&#x5B66;
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-09
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                    </a>
+                                    
                                     
                                 </span>
                             </div>
@@ -1357,9 +1446,133 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             
                             <a href="/tags/ACM/"><span class="chip bg-color">ACM</span></a>
                             
-                            <a href="/tags/水题/"><span class="chip bg-color">水题</span></a>
+                            <a href="/tags/动态规划/"><span class="chip bg-color">动态规划</span></a>
                             
-                            <a href="/tags/测试/"><span class="chip bg-color">测试</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>08</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/kmp-you-hua-mo-ban.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="kmp优化模板">
+                                
+                                <span class="card-title">kmp优化模板</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                    
+#include &lt;stdio.h&gt;
+#include&lt;string.h&gt;
+int next[100];
+void getnext(c
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-08
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/ACM/"><span class="chip bg-color">ACM</span></a>
+                            
+                            <a href="/tags/kmp/"><span class="chip bg-color">kmp</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>07</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/lan-qiao-bei-li-jie-shi-ti-dui-ju-pi-pei.html">
+                            <div class="card-image">
+                                
+                                <img src="/medias/images/1.jpg" class="responsive-img" alt="蓝桥杯历届试题对局匹配">
+                                
+                                <span class="card-title">蓝桥杯历届试题对局匹配</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                    &#x84DD;&#x6865;&#x676F; &#x5386;&#x5C4A;&#x8BD5;&#x9898; &#x5BF9;&#x5C40;&#x533
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/ACM/"><span class="chip bg-color">ACM</span></a>
+                            
+                            <a href="/tags/算法/"><span class="chip bg-color">算法</span></a>
+                            
+                            <a href="/tags/c语言/"><span class="chip bg-color">c语言</span></a>
                             
                         </div>
                         
@@ -1384,11 +1597,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
+            <div class="center-align b-text-gray">2 / 9</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a class="right btn-floating btn-large disabled">
+            <a href="/archives/page/3/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fa fa-angle-right"></i>
             </a>
             
@@ -1509,10 +1723,10 @@ $(document).ready(function(){
 			
 			
                 <i class="fa fa-area-chart"></i>站点总字数:
-                <span class="white-color">22.1k</span>
+                <span class="white-color">101.9k</span>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			本站由&copy;<a href="https://github.com/Five-great/Five-great.github.io" target="_blank">Five</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 搭建.
+			本站由&copy;2020<a href="https://github.com/Five-great" target="_blank">Five</a>.
+            <a href=" //beian.miit.gov.cn">蜀ICP备19039491号-1</a>
 			
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
@@ -1522,8 +1736,8 @@ $(document).ready(function(){
 
 
 
-    <a href="mailto:fivecc@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
+    <a href="https://blog.csdn.net/qq_41923622" class="tooltipped" target="_blank" data-tooltip="访问我的CSDN" data-position="top" data-delay="50">
+        <i class="fa fa fa-inverse">CSDN</i>
     </a>
 
 
@@ -1594,7 +1808,7 @@ $(function () {
     <script src="//code.tidio.co/fpsqhelqtaqrrbky00l0dslgdfemaqne.js"></script>
     <script>
     $(document).ready(function () {
-        setInterval(change_Tidio, 50);  
+       var fvTimeId =  setInterval(change_Tidio, 100);  
         function change_Tidio() { 
             var tidio=$("#tidio-chat iframe");
             if(tidio.css("display")=="block"&&tidio.css("bottom")=="0px"&&$(window).width()>690 || parseInt(tidio.css("height"))<230){
@@ -1602,15 +1816,27 @@ $(function () {
                  document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
                   document.getElementById("tidio-chat-iframe").style.right="5px";
                  document.getElementById("tidio-chat-iframe").style.zIndex="997";
+				 clearInterval(fvTimeId)
             } 
             if( tidio.css("display")=="block"&& parseInt(tidio.css("height"))>=230){
             document.getElementById("tidio-chat-iframe").style.zIndex="998";
             document.getElementById("tidio-chat-iframe").style.right="0px"; 
+			clearInterval(fvTimeId)
             }} }); 
     
+	var fvTimeIdAD = setInterval(
+	function(){
+	if($(".google-auto-placed")[0]&&$(".google-auto-placed")[0].className){
+	     $("#google-auto-placed-ID").append($(".google-auto-placed")[0]);
+		 $(".google-auto-placed").css("display","none");
+		 $("#google-auto-placed-ID .google-auto-placed").css("display","block");
+		 clearInterval(fvTimeIdAD)
+	 }
+	}, 100);
+   
     </script>
 </body>
 <script>
-$("#loading").fadeOut(3000);
+$("#fv_loading").fadeOut(3000);
 </script>
 </html>

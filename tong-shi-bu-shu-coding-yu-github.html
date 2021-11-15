@@ -15,7 +15,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>同时部署coding与github | Five-great的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
-
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
@@ -23,221 +22,12 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
+    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
     <style type="text/css">
         
     </style>
-
-<style>
-#loading {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background: #f3815e;
-    overflow-y: hidden;
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 998;
-  }
-  .loadingImage,.loadingImage2,.loadingImage3 {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: #2e98df;
-      border-radius: 35px;
-      animation: loadingImage 3.0s infinite linear;
-        z-index: 999;
-  }
-   .loadingImage2{  animation: loadingImage2 1.5s infinite linear;} 
-  .loadingImage::after {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-top: 8px solid #b160d1;
-      border-bottom: 8px solid #5e88ec;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent; 
-      border-radius: 60px;
-      content: '';
-      top: -15px;
-      left: -15px;
-      animation: loadingImage_after 3.0s infinite linear;
-  }
-
-  .loadingImage2::after {
-      position: absolute;
-      width: 90px;
-      height: 90px; 
-      border-left: 8px solid#b160d1 ;
-      border-right: 8px solid #5e88ec;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-radius: 90px;
-      content: '';
-      top: -30px;
-      left: -30px;
-      animation: loadingImage_after2 3.s infinite linear;
-  }
-
-  .loadingImage3::after {
-      position: absolute;
-      width: 120px;
-      height: 120px; 
-      border-top: 8px solid#b160d1 ;
-      border-bottom: 8px solid #5e88ec;
-      border-right: 8px solid transparent;
-      border-left: 8px solid transparent;
-      border-radius: 120px;
-      content: '';
-      top: -45px;
-      left: -45px;
-      /* animation: loadingImage_after 1.s infinite linear; */
-  }
-  
-  
-    @keyframes loadingImage {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  @keyframes loadingImage2 {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  
-  @keyframes loadingImage_after {
-      0% {
-          
-      }
-      50% {
-           border-top: 8px solid #b160d1;
-          border-bottom: 8px solid #5e88ec;
-      }
-      100% {
-         border-top: 8px solid #5e88ec;
-          border-bottom: 8px solid #b160d1;
-      }
-  }
-
-  @keyframes loadingImage_after2 {
-      0% {
-          
-      }
-  
-      50% {
-          border-left: 8px solid #b160d1;
-          border-right: 8px solid #5e88ec; 
-      }
-  
-      100% {
-         
-          border-left: 8px solid #5e88ec;
-          border-right: 8px solid #b160d1;
-      }
-  } 
-  
-  
-  .fv_bounce {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-      color: white;
-    height: 100%;
-    font: normal bold 5rem "Product Sans", sans-serif;
-    white-space: nowrap;
-    
-  }
-  
-  .fv_letter { 
-    top: 200px;
-    animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-    display: inline-block;
-    transform: translate3d(0, 0, 0);
-    margin-top: 0.5em;
-    text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    font: normal 500 5rem 'Varela Round', sans-serif;
-  }
-  @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 4.5rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  @media only screen and (max-width: 601px) {
-     .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 3.4rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  .fv_letter:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .fv_letter:nth-child(2) {
-    animation-delay: 0.083333333s;
-  }
-  .fv_letter:nth-child(3) {
-    animation-delay: 0.1266666667s;
-  }
-  .fv_letter:nth-child(4) {
-    animation-delay: 0.145s;
-  }
-  .fv_letter:nth-child(5) {
-    animation-delay: 0.1833333333s;
-  }
-  .fv_letter:nth-child(6) {
-    animation-delay: 0.2116666667s;
-  }
-  .fv_letter:nth-child(7) {
-    animation-delay: 0.25166666667s;
-  }
-  
-  @keyframes fv_bounce {
-    0% {
-      transform: translate3d(0, 0, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    }
-    100% {
-      transform: translate3d(0, -1em, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 1em 0.35em;
-    }
-  }
-  
-</style>  
-  <div id="loading">
-        <div class="loadingImage3"><div class="loadingImage2"><div class="loadingImage"></div></div></div>  
+  <div id="fv_loading">
+        <div class="fv_loadingBorder2"><div class="fv_loadingBorder3"><div class="fv_loadingBorder"></div></div></div>  
         <div class="fv_bounce">
                 <span class="fv_letter"><br><br><br>F</span>
                 <span class="fv_letter"><br><br><br>i</span>
@@ -248,7 +38,6 @@
                 <span class="fv_letter"><br><br><br>ea</span>
                 <span class="fv_letter"><br><br><br>t</span>
         <div>
-      
     </div>
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>	
 	
@@ -288,8 +77,8 @@
         enable_page_level_ads: true
       });
     </script>
+</div></div></head>
 
-</div></div>
 
 <body>
       
@@ -1702,6 +1491,51 @@ settime
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/da-qiao.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="搭桥">
+                        
+                        <span class="card-title">搭桥</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">题目：搭桥题目链接：http://codevs.cn/problem/1002/题目描述 Description有一矩形</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            five
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ACM/" target="_blank">
+                        <span class="chip bg-color">ACM</span>
+                    </a>
+                    
+                    <a href="/tags/搜索/" target="_blank">
+                        <span class="chip bg-color">搜索</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/dai-ma-ce-shi.html">
                     <div class="card-image">
                         
@@ -1714,9 +1548,9 @@ settime
                 <div class="card-content article-content">
                     <div class="summary">汉诺塔游戏                                      时间限制: 1 s｜空间限制: 3</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -1745,51 +1579,6 @@ settime
             </div>
         </div>
         
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/dai-ma-ce-shi-2.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="代码测试2">
-                        
-                        <span class="card-title">代码测试2</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">汉诺塔游戏                                      时间限制: 1 s｜空间限制: 3</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            five
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ACM/" target="_blank">
-                        <span class="chip bg-color">ACM</span>
-                    </a>
-                    
-                    <a href="/tags/水题/" target="_blank">
-                        <span class="chip bg-color">水题</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
     </div>
 </article>
 
@@ -1801,7 +1590,7 @@ settime
     
 
 </main>
-
+ <div id="google-auto-placed-ID"> </div>
 
 
 
@@ -1915,10 +1704,10 @@ $(document).ready(function(){
 			
 			
                 <i class="fa fa-area-chart"></i>站点总字数:
-                <span class="white-color">22.1k</span>
+                <span class="white-color">101.9k</span>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			本站由&copy;<a href="https://github.com/Five-great/Five-great.github.io" target="_blank">Five</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 搭建.
+			本站由&copy;2020<a href="https://github.com/Five-great" target="_blank">Five</a>.
+            <a href=" //beian.miit.gov.cn">蜀ICP备19039491号-1</a>
 			
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
@@ -1928,8 +1717,8 @@ $(document).ready(function(){
 
 
 
-    <a href="mailto:fivecc@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
+    <a href="https://blog.csdn.net/qq_41923622" class="tooltipped" target="_blank" data-tooltip="访问我的CSDN" data-position="top" data-delay="50">
+        <i class="fa fa fa-inverse">CSDN</i>
     </a>
 
 
@@ -2000,7 +1789,7 @@ $(function () {
     <script src="//code.tidio.co/fpsqhelqtaqrrbky00l0dslgdfemaqne.js"></script>
     <script>
     $(document).ready(function () {
-        setInterval(change_Tidio, 50);  
+       var fvTimeId =  setInterval(change_Tidio, 100);  
         function change_Tidio() { 
             var tidio=$("#tidio-chat iframe");
             if(tidio.css("display")=="block"&&tidio.css("bottom")=="0px"&&$(window).width()>690 || parseInt(tidio.css("height"))<230){
@@ -2008,15 +1797,27 @@ $(function () {
                  document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
                   document.getElementById("tidio-chat-iframe").style.right="5px";
                  document.getElementById("tidio-chat-iframe").style.zIndex="997";
+				 clearInterval(fvTimeId)
             } 
             if( tidio.css("display")=="block"&& parseInt(tidio.css("height"))>=230){
             document.getElementById("tidio-chat-iframe").style.zIndex="998";
             document.getElementById("tidio-chat-iframe").style.right="0px"; 
+			clearInterval(fvTimeId)
             }} }); 
     
+	var fvTimeIdAD = setInterval(
+	function(){
+	if($(".google-auto-placed")[0]&&$(".google-auto-placed")[0].className){
+	     $("#google-auto-placed-ID").append($(".google-auto-placed")[0]);
+		 $(".google-auto-placed").css("display","none");
+		 $("#google-auto-placed-ID .google-auto-placed").css("display","block");
+		 clearInterval(fvTimeIdAD)
+	 }
+	}, 100);
+   
     </script>
 </body>
 <script>
-$("#loading").fadeOut(3000);
+$("#fv_loading").fadeOut(3000);
 </script>
 </html>

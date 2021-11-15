@@ -15,7 +15,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>分类: 程序设计 | Five-great的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
-
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
@@ -23,221 +22,12 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
+    <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
     <style type="text/css">
         
     </style>
-
-<style>
-#loading {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background: #f3815e;
-    overflow-y: hidden;
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 998;
-  }
-  .loadingImage,.loadingImage2,.loadingImage3 {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: #2e98df;
-      border-radius: 35px;
-      animation: loadingImage 3.0s infinite linear;
-        z-index: 999;
-  }
-   .loadingImage2{  animation: loadingImage2 1.5s infinite linear;} 
-  .loadingImage::after {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-top: 8px solid #b160d1;
-      border-bottom: 8px solid #5e88ec;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent; 
-      border-radius: 60px;
-      content: '';
-      top: -15px;
-      left: -15px;
-      animation: loadingImage_after 3.0s infinite linear;
-  }
-
-  .loadingImage2::after {
-      position: absolute;
-      width: 90px;
-      height: 90px; 
-      border-left: 8px solid#b160d1 ;
-      border-right: 8px solid #5e88ec;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-radius: 90px;
-      content: '';
-      top: -30px;
-      left: -30px;
-      animation: loadingImage_after2 3.s infinite linear;
-  }
-
-  .loadingImage3::after {
-      position: absolute;
-      width: 120px;
-      height: 120px; 
-      border-top: 8px solid#b160d1 ;
-      border-bottom: 8px solid #5e88ec;
-      border-right: 8px solid transparent;
-      border-left: 8px solid transparent;
-      border-radius: 120px;
-      content: '';
-      top: -45px;
-      left: -45px;
-      /* animation: loadingImage_after 1.s infinite linear; */
-  }
-  
-  
-    @keyframes loadingImage {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  @keyframes loadingImage2 {
-      0% {
-          transform: rotate(0deg);
-      }
-  
-      50% {
-          transform: rotate(180deg);
-          background: #2ecc71;
-      }
-  
-      100% {
-          transform: rotate(360deg);
-      }
-  }
-  
-  @keyframes loadingImage_after {
-      0% {
-          
-      }
-      50% {
-           border-top: 8px solid #b160d1;
-          border-bottom: 8px solid #5e88ec;
-      }
-      100% {
-         border-top: 8px solid #5e88ec;
-          border-bottom: 8px solid #b160d1;
-      }
-  }
-
-  @keyframes loadingImage_after2 {
-      0% {
-          
-      }
-  
-      50% {
-          border-left: 8px solid #b160d1;
-          border-right: 8px solid #5e88ec; 
-      }
-  
-      100% {
-         
-          border-left: 8px solid #5e88ec;
-          border-right: 8px solid #b160d1;
-      }
-  } 
-  
-  
-  .fv_bounce {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-      color: white;
-    height: 100%;
-    font: normal bold 5rem "Product Sans", sans-serif;
-    white-space: nowrap;
-    
-  }
-  
-  .fv_letter { 
-    top: 200px;
-    animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-    display: inline-block;
-    transform: translate3d(0, 0, 0);
-    margin-top: 0.5em;
-    text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    font: normal 500 5rem 'Varela Round', sans-serif;
-  }
-  @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 4.5rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  @media only screen and (max-width: 601px) {
-     .fv_letter {animation: fv_bounce 0.55s cubic-bezier(0.05, 0, 0.23, 1) infinite alternate;
-            display: inline-block;
-            transform: translate3d(0, 0, 0);
-            margin-top: 0.5em;
-            text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-            font: normal 500 3.4rem 'Varela Round', sans-serif;
-          }
-  }
-  
-  .fv_letter:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .fv_letter:nth-child(2) {
-    animation-delay: 0.083333333s;
-  }
-  .fv_letter:nth-child(3) {
-    animation-delay: 0.1266666667s;
-  }
-  .fv_letter:nth-child(4) {
-    animation-delay: 0.145s;
-  }
-  .fv_letter:nth-child(5) {
-    animation-delay: 0.1833333333s;
-  }
-  .fv_letter:nth-child(6) {
-    animation-delay: 0.2116666667s;
-  }
-  .fv_letter:nth-child(7) {
-    animation-delay: 0.25166666667s;
-  }
-  
-  @keyframes fv_bounce {
-    0% {
-      transform: translate3d(0, 0, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
-    }
-    100% {
-      transform: translate3d(0, -1em, 0);
-      text-shadow: rgba(255, 255, 255, 0.4) 0 1em 0.35em;
-    }
-  }
-  
-</style>  
-  <div id="loading">
-        <div class="loadingImage3"><div class="loadingImage2"><div class="loadingImage"></div></div></div>  
+  <div id="fv_loading">
+        <div class="fv_loadingBorder2"><div class="fv_loadingBorder3"><div class="fv_loadingBorder"></div></div></div>  
         <div class="fv_bounce">
                 <span class="fv_letter"><br><br><br>F</span>
                 <span class="fv_letter"><br><br><br>i</span>
@@ -248,7 +38,6 @@
                 <span class="fv_letter"><br><br><br>ea</span>
                 <span class="fv_letter"><br><br><br>t</span>
         <div>
-      
     </div>
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>	
 	
@@ -288,8 +77,8 @@
         enable_page_level_ads: true
       });
     </script>
+</div></div></head>
 
-</div></div>
 
 <body>
       
@@ -1158,20 +947,56 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 
                 
-                <a href="/categories/程序设计/" title="程序设计: 4">
+                <a href="/categories/Hexo/" title="Hexo: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F9EBEA;">程序设计
+                             chip-default "
+                            style="background-color: #F9EBEA;">Hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/小程序/" title="小程序: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">小程序
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/前端/" title="前端: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">前端
                         <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/前端/" title="前端: 3">
+                <a href="/categories/程序设计/" title="程序设计: 35">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #E8F8F5;">程序设计
+                        <span class="tag-length">35</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/树莓派/" title="树莓派: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">前端
-                        <span class="tag-length">3</span>
+                            style="background-color: #FEF9E7;">树莓派
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/算法/" title="算法: 26">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">算法
+                        <span class="tag-length">26</span>
                     </span>
                 </a>
                 
@@ -1188,24 +1013,23 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/iir-shu-zi-lu-bo-qi.html">
+                    <a href="/java-ban-wu-zi-qi-xiao-you-xi-java-kong-zhi-tai.html">
                         <div class="card-image tag-image">
                             
-                            <img src="https://fm60dk.coding-pages.com/myimages/20181218161307866.png" class="responsive-img" alt="IIR数字滤波器">
+                            <img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563576468294_5A2F10B571AD4B7A6665FFBD7D0E0A19" class="responsive-img" alt="Java版五子棋小游戏(java控制台)">
                             
-                            <span class="card-title">IIR数字滤波器</span>
+                            <span class="card-title">Java版五子棋小游戏(java控制台)</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary">
                             
-                                一、实验目的1.熟悉双线性变换法设计IIR数字滤波器的原理与方法。
-2.掌握II
+                                Java&#x7248;&#x4E94;&#x5B50;&#x68CB;&#x5
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-07
                             </span>
                             <span class="publish-author">
                                 
@@ -1223,12 +1047,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/数字信号/" target="_blank">
-                            <span class="chip bg-color">数字信号</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
-                        <a href="/tags/滤波器/" target="_blank">
-                            <span class="chip bg-color">滤波器</span>
+                        <a href="/tags/程序设计/" target="_blank">
+                            <span class="chip bg-color">程序设计</span>
+                        </a>
+                        
+                        <a href="/tags/课程设计/" target="_blank">
+                            <span class="chip bg-color">课程设计</span>
                         </a>
                         
                     </div>
@@ -1238,23 +1066,23 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/jian-dan-wifi-xiao-che.html">
+                    <a href="/zong-he-cheng-xu-she-ji-dao-dan-zhui-zong-wen-ti-matlab.html">
                         <div class="card-image tag-image">
                             
-                            <img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563577171467_5A2F10B571AD4B7A6665FFBD7D0E0A19" class="responsive-img" alt="简单WiFi控制小车系统（树莓派＋python＋web控制界面)">
+                            <img src="https://uploadfiles.nowcoder.com/images/20190720/683055227_1563576481604_5A2F10B571AD4B7A6665FFBD7D0E0A19" class="responsive-img" alt="综合程序设计导弹追踪问题(matlab)">
                             
-                            <span class="card-title">简单WiFi控制小车系统（树莓派＋python＋web控制界面)</span>
+                            <span class="card-title">综合程序设计导弹追踪问题(matlab)</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary">
                             
-                                    下面是小车           好丑 对不对 ，不过反正可以蛇皮走位就行
+                                &#x7EFC;&#x5408;&#x7A0B;&#x5E8F;&#x8BBE;
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-24
                             </span>
                             <span class="publish-author">
                                 
@@ -1272,12 +1100,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/树莓派/" target="_blank">
-                            <span class="chip bg-color">树莓派</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
-                        <a href="/tags/python/" target="_blank">
-                            <span class="chip bg-color">python</span>
+                        <a href="/tags/matlab/" target="_blank">
+                            <span class="chip bg-color">matlab</span>
                         </a>
                         
                     </div>
@@ -1287,27 +1115,24 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/friend-fei-bo-na-qi.html">
+                    <a href="/lan-qiao-bei-li-jie-zhen-ti-gao-seng-dou-fa-bo-yi-nim-bo-yi.html">
                         <div class="card-image tag-image">
                             
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="蓝桥杯历届真题高僧斗法（博弈-Nim博弈）">
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="friend-斐波那契">
-                            
-                            <span class="card-title">friend-斐波那契</span>
+                            <span class="card-title">蓝桥杯历届真题高僧斗法（博弈-Nim博弈）</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary">
                             
                                 
-
-
-friend-斐波那契html {overflow-x: initial 
+&#x95EE;&#x9898; 1459: [&#x84DD;&#x6865
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-07
                             </span>
                             <span class="publish-author">
                                 
@@ -1325,16 +1150,12 @@ friend-斐波那契html {overflow-x: initial
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/ACM/" target="_blank">
-                            <span class="chip bg-color">ACM</span>
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
-                        <a href="/tags/水题/" target="_blank">
-                            <span class="chip bg-color">水题</span>
-                        </a>
-                        
-                        <a href="/tags/快速幂/" target="_blank">
-                            <span class="chip bg-color">快速幂</span>
+                        <a href="/tags/程序设计/" target="_blank">
+                            <span class="chip bg-color">程序设计</span>
                         </a>
                         
                     </div>
@@ -1344,9 +1165,8 @@ friend-斐波那契html {overflow-x: initial
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/han-nuo-ta-you-xi.html">
+                    <a href="/han-nuo-ta-you-xi-di-gui-yu-fei-di-gui-xiang-jie.html">
                         <div class="card-image tag-image">
-                            
                             
                             <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="汉诺塔游戏（递归与非递归详解）">
                             
@@ -1356,12 +1176,12 @@ friend-斐波那契html {overflow-x: initial
                     <div class="card-content article-content">
                         <div class="summary">
                             
-                                汉诺塔游戏​                                  
+                                &#x6C49;&#x8BFA;&#x5854;&#x6E38;&#x620F;
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-28
                             </span>
                             <span class="publish-author">
                                 
@@ -1396,9 +1216,278 @@ friend-斐波那契html {overflow-x: initial
                 </div>
             </div>
             
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/k-jin-zhi-shu.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/medias/images/2018122214540225.png" class="responsive-img" alt="K-进制数">
+                            
+                            <span class="card-title">K-进制数</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                                                        
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ACM/" target="_blank">
+                            <span class="chip bg-color">ACM</span>
+                        </a>
+                        
+                        <a href="/tags/c语言/" target="_blank">
+                            <span class="chip bg-color">c语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/niu-niu-de-hui-wen-chuan-qu-jian-dp.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="https://static.nowcoder.com/images/res/logo/logo-v3.png" class="responsive-img" alt="牛牛的回文串（区间dp）">
+                            
+                            <span class="card-title">牛牛的回文串（区间dp）</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                      &#x9898;&#x76EE;&#x63CF;&#x8FF0;  
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ACM/" target="_blank">
+                            <span class="chip bg-color">ACM</span>
+                        </a>
+                        
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/lan-qiao-bei-zi-fu-chuan-tong-ji-mei-ju-duan-duan-20-xing.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="蓝桥杯字符串统计(枚举短短20行)">
+                            
+                            <span class="card-title">蓝桥杯字符串统计(枚举短短20行)</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                  &#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x957
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/蓝桥杯/" target="_blank">
+                            <span class="chip bg-color">蓝桥杯</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/acm-sheng-sai-e-ti-zui-chang-de-di-zeng-zi-xu-lie-dong-tai-gui-hua-zui-chang-di-zeng-zi-xu-lie.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ACM省赛E题最长的递增子序列(动态规划+最长递增子序列)">
+                            
+                            <span class="card-title">ACM省赛E题最长的递增子序列(动态规划+最长递增子序列)</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                   &#x6700;&#x957F;&#x7684;&#x9012;&#x58
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ACM/" target="_blank">
+                            <span class="chip bg-color">ACM</span>
+                        </a>
+                        
+                        <a href="/tags/动态规划/" target="_blank">
+                            <span class="chip bg-color">动态规划</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/lan-qiao-bei-zui-da-zi-zhen-qian-zhui-he-zui-da-zi-duan.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="蓝桥杯最大子阵（前缀和+最大子段)">
+                            
+                            <span class="card-title">蓝桥杯最大子阵（前缀和+最大子段)</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                &lt;p&gt;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/程序设计/" class="post-category" target="_blank">
+                                    程序设计
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/水题/" target="_blank">
+                            <span class="chip bg-color">水题</span>
+                        </a>
+                        
+                        <a href="/tags/算法/" target="_blank">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
     </article>
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 4</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/程序设计/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 
@@ -1513,10 +1602,10 @@ $(document).ready(function(){
 			
 			
                 <i class="fa fa-area-chart"></i>站点总字数:
-                <span class="white-color">22.1k</span>
+                <span class="white-color">101.9k</span>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			本站由&copy;<a href="https://github.com/Five-great/Five-great.github.io" target="_blank">Five</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 搭建.
+			本站由&copy;2020<a href="https://github.com/Five-great" target="_blank">Five</a>.
+            <a href=" //beian.miit.gov.cn">蜀ICP备19039491号-1</a>
 			
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
@@ -1526,8 +1615,8 @@ $(document).ready(function(){
 
 
 
-    <a href="mailto:fivecc@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
+    <a href="https://blog.csdn.net/qq_41923622" class="tooltipped" target="_blank" data-tooltip="访问我的CSDN" data-position="top" data-delay="50">
+        <i class="fa fa fa-inverse">CSDN</i>
     </a>
 
 
@@ -1598,7 +1687,7 @@ $(function () {
     <script src="//code.tidio.co/fpsqhelqtaqrrbky00l0dslgdfemaqne.js"></script>
     <script>
     $(document).ready(function () {
-        setInterval(change_Tidio, 50);  
+       var fvTimeId =  setInterval(change_Tidio, 100);  
         function change_Tidio() { 
             var tidio=$("#tidio-chat iframe");
             if(tidio.css("display")=="block"&&tidio.css("bottom")=="0px"&&$(window).width()>690 || parseInt(tidio.css("height"))<230){
@@ -1606,15 +1695,27 @@ $(function () {
                  document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
                   document.getElementById("tidio-chat-iframe").style.right="5px";
                  document.getElementById("tidio-chat-iframe").style.zIndex="997";
+				 clearInterval(fvTimeId)
             } 
             if( tidio.css("display")=="block"&& parseInt(tidio.css("height"))>=230){
             document.getElementById("tidio-chat-iframe").style.zIndex="998";
             document.getElementById("tidio-chat-iframe").style.right="0px"; 
+			clearInterval(fvTimeId)
             }} }); 
     
+	var fvTimeIdAD = setInterval(
+	function(){
+	if($(".google-auto-placed")[0]&&$(".google-auto-placed")[0].className){
+	     $("#google-auto-placed-ID").append($(".google-auto-placed")[0]);
+		 $(".google-auto-placed").css("display","none");
+		 $("#google-auto-placed-ID .google-auto-placed").css("display","block");
+		 clearInterval(fvTimeIdAD)
+	 }
+	}, 100);
+   
     </script>
 </body>
 <script>
-$("#loading").fadeOut(3000);
+$("#fv_loading").fadeOut(3000);
 </script>
 </html>
