@@ -22,7 +22,6 @@
             width: 49%;
             box-sizing: border-box;
         }
-
       .image-container img {
             border: 2px solid rgb(107, 106, 106);
             box-sizing: border-box;
@@ -63,6 +62,11 @@
 </head>
 
 <body>
+        <div class="controls">
+                <button onclick="zoomIn()">放大</button>
+                <button onclick="zoomOut()">缩小</button>
+                <button onclick="resetZoom()">复原</button>
+        </div>
     <div class="image-group" id="currentImageGroup">
         <h2 id="groupTitle"></h2>
         <div class="image-pair" id="imagePair"></div>
@@ -72,11 +76,7 @@
             <button onclick="nextGroup()">下一组</button>
         </div>
     </div>
-    <div class="controls">
-        <button onclick="zoomIn()">放大</button>
-        <button onclick="zoomOut()">缩小</button>
-        <button onclick="resetZoom()">复原</button>
-    </div>
+ 
     <script>
     const imageUrlsOld = [
 
@@ -271,7 +271,9 @@
     "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8027.jpg",
     "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8233.jpg",
     "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8162.jpg",
-    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8082.jpg"
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8082.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990070.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8222.jpg",
 ];
 
 
