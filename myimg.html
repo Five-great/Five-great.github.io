@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -101,5 +101,189 @@
     });
 </script>
  
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Group</title>
+ 
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.image-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image-group.single img,
+.image-group.double img {
+    max-width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.image-group.double {
+    display: flex;
+    flex-direction: column; /* 手机端竖向展示 */
+}
+
+.image-group.double img {
+    width: 50%; /* 各占50%宽度 */
+}
+
+@media (min-width: 768px) {
+    .image-group.double {
+        flex-direction: row; /* PC端横向展示 */
+    }
+}
+
+.filename {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #333;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="image-groups"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const imageGroupsContainer = document.getElementById('image-groups');
+
+    // 模拟数据
+    const imageData = [
+        {
+            group: 1,
+            images: [
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P001.jpg', alt: 'P001', filename: 'P001' },
+            ],
+        },
+        {
+            group: 2,
+            images: [
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P002.jpg', alt: 'P002', filename: 'P002' },
+            ],
+        },
+        {
+            group: 3,
+            images: [
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P003.jpg', alt: 'Image 2A', filename: 'File 2A' },
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P004.jpg', alt: 'Image 2B', filename: 'File 2B' },
+            ],
+        },
+        {
+            group: 4,
+            images: [
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P005.jpg', alt: 'Image 2A', filename: 'File 2A' },
+                { src: 'https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P006.jpg', alt: 'Image 2B', filename: 'File 2B' },
+            ],
+        },
+        // ... 更多图片组数据
+    ];
+
+    // 加载图片组
+    imageData.forEach(group => {
+        const groupDiv = document.createElement('div');
+        groupDiv.classList.add('image-group', `group-${group.group}`);
+        if (group.images.length === 1) {
+            groupDiv.classList.add('single');
+        } else {
+            groupDiv.classList.add('double');
+        }
+
+        group.images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            img.dataset.filename = image.filename; // 存储文件名以便后续使用
+
+            // 添加拖动和缩放事件（这里仅作为示例，实际实现会更复杂）
+            img.addEventListener('mousedown', startDrag);
+
+            groupDiv.appendChild(img);
+        });
+
+        // 显示文件名
+        const filenameDiv = document.createElement('div');
+        filenameDiv.classList.add('filename');
+        group.images.forEach((image, index) => {
+            const filenameSpan = document.createElement('span');
+            filenameSpan.textContent = image.filename;
+            if (group.images.length > 1) {
+                filenameSpan.textContent += ` (${index === 0 ? 'A' : 'B'})`;
+            }
+            filenameDiv.appendChild(filenameSpan);
+            if (group.images.length > 1) {
+                filenameDiv.appendChild(document.createElement('br')); // 多张图片时换行
+            }
+        });
+
+        groupDiv.appendChild(filenameDiv);
+        imageGroupsContainer.appendChild(groupDiv);
+    });
+
+    // 拖动逻辑（简化版，仅作为示例）
+    let draggedElement = null;
+    let offsetX, offsetY;
+
+    function startDrag(e) {
+        draggedElement = e.target;
+        offsetX = e.clientX - draggedElement.offsetLeft;
+        offsetY = e.clientY - draggedElement.offsetTop;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    }
+
+    function onMouseMove(e) {
+        if (draggedElement) {
+            draggedElement.style.left = `${e.clientX - offsetX}px`;
+            draggedElement.style.top = `${e.clientY - offsetY}px`;
+
+            // 同步拖动逻辑（这里仅同步位置，未处理缩放）
+            const group = draggedElement.closest('.image-group');
+            if (group && group.classList.contains('double')) {
+                const sibling = [...group.children].find(child => child !== draggedElement && child.tagName === 'IMG');
+                if (sibling) {
+                    sibling.style.left = draggedElement.style.left;
+                    sibling.style.top = draggedElement.style.top;
+                }
+            }
+        }
+    }
+
+    function onMouseUp() {
+        draggedElement = null;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }
+
+    // 注意：这里的拖动和同步逻辑非常简化，仅用于演示。
+    // 在实际项目中，你可能需要使用更复杂的逻辑来处理拖动、缩放以及边界检测。
+    // 你可能还需要考虑触摸事件以支持移动设备。
+});
+    </script>
 </body>
 </html>
