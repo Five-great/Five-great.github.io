@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Tool</title>
+    <style>
+      .image-group {
+            margin: 20px;
+        }
+
+      .image-pair {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+      .image-container {
+            position: relative;
+            overflow: hidden;
+            width: 49%;
+            box-sizing: border-box;
+        }
+
+      .image-container img {
+            border: 2px solid rgb(107, 106, 106);
+            box-sizing: border-box;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+            min-width: 95%;
+            max-width: 100%;
+            height: auto;
+        }
+
+      .single-image img {
+            border: 2px solid rgb(107, 106, 106);
+            box-sizing: border-box;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+            min-width: 95%;
+            max-width: 100%;
+            height: auto;
+        }
+
+      .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 767px) {
+          .image-container {
+                overflow: hidden;
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-group" id="currentImageGroup">
+        <h2 id="groupTitle"></h2>
+        <div class="image-pair" id="imagePair"></div>
+        <div class="single-image" id="singleImage"></div>
+        <div class="controls">
+            <button onclick="prevGroup()">上一组</button>
+            <button onclick="nextGroup()">下一组</button>
+        </div>
+    </div>
+    <div class="controls">
+        <button onclick="zoomIn()">放大</button>
+        <button onclick="zoomOut()">缩小</button>
+        <button onclick="resetZoom()">复原</button>
+    </div>
+    <script>
+    const imageUrlsOld = [
+
+  
+"https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF7995.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8019.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8027.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8032.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8060.jpg",
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8066.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8082.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8162.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8222.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8233.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8242.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8277.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8300.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8317.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8340.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8365.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8367.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8380.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8387.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8421.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990002.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990003.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990008.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990010.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990014.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990015.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990021.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990027.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990041.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990048.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990056.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990060.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990061.jpg",
+
+
+
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990064.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990066.jpg",
+
+   "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/TY990070.jpg",
+// 添加更多图片 URL
+];
+    // 假设你有一个图片URL的数组
+    var imageUrls = [
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990066.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990064.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8380.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990061.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990056.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990060.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990048.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990027.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990010.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990008.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990002.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8365.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990041.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990021.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990015.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990014.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/TY990003.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8421.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8387.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8367.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8340.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8300.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8242.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8317.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8277.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8066.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8019.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF7995.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8060.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8032.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8027.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8233.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8162.jpg",
+    "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1241858/DSCF8082.jpg"
+];
+
+
+
+let imageGMap={
+
+ }
+const fileNameRegex = /[^\/?#]+(?=[?#]|$)/;
+imageUrlsOld.forEach(u=>{
+    const match = u.match(fileNameRegex)
+    const fileName = match ? match[0] : null;
+    if(fileName){
+        imageGMap[fileName]=imageGMap[fileName]||{}
+        imageGMap[fileName].old = u
+    }
+})
+imageUrls.forEach(u=>{
+    const match = u.match(fileNameRegex)
+    const fileName = match ? match[0] : null;
+    if(fileName){
+        imageGMap[fileName]=imageGMap[fileName]||{}
+        imageGMap[fileName].url = u
+    }
+})
+let imageGroups=[
+    {
+        title: "海报P001.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097061/P001.jpg"]
+    },
+
+    {
+        title: "1%E4%B8%AD%E6%A1%8640x40cm-1.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%AD%E6%A1%8640x40cm-1.jpg"]
+    },
+    {
+        title: "1%E4%B8%AD%E6%A1%8640x40cm-2.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%AD%E6%A1%8640x40cm-2.jpg"]
+    },
+    {
+        title: "1%E4%B8%BB%E6%A1%8660x90cm.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%BB%E6%A1%8660x90cm.jpg"]
+    },
+    {
+        title: "1%E6%91%86%E5%8F%B018x23cm.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E6%91%86%E5%8F%B018x23cm.jpg"]
+    },
+    {
+        title: "1%E6%91%86%E5%8F%B023x18cm.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E6%91%86%E5%8F%B023x18cm.jpg"]
+    },
+    {
+        title: "P001.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P001.jpg"]
+    },
+    {
+        title: "P002.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P002.jpg"]
+    }
+    ,
+    {
+        title: "P003.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P003.jpg"]
+    }
+    ,
+    {
+        title: "P004.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P004.jpg"]
+    }
+    ,
+    {
+        title: "P005.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P005.jpg"]
+    }
+    ,
+    {
+        title: "P006.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P006.jpg"]
+    },
+    {
+        title: "P007.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P007.jpg"]
+    },
+    {
+        title: "P008.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P008.jpg"]
+    },
+    {
+        title: "P009.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P009.jpg"]
+    },
+    {
+        title: "P010.jpg",
+        images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097056/P010.jpg"]
+    }
+]
+
+Object.keys(imageGMap).forEach((key)=>{
+    imageGroups.push({title: key,images:[imageGMap[key].old,imageGMap[key].url]})
+})
+        let currentIndex = 0;
+        let scale = 1;
+        let translateX = [0, 0];
+        let translateY = [0, 0];
+        let isDragging = [false, false];
+        let startX = [0, 0];
+        let startY = [0, 0];
+        let startTranslateX = [0, 0];
+        let startTranslateY = [0, 0];
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const realSrc = img.dataset.src;
+                    const imgObj = new Image();
+                    imgObj.src = realSrc;
+                    imgObj.onload = () => {
+                        img.src = realSrc;
+                        observer.unobserve(img);
+                    };
+                }
+            });
+        });
+
+        function displayGroup() {
+            const currentGroup = imageGroups[currentIndex];
+            const groupTitle = document.getElementById('groupTitle');
+            const imagePair = document.getElementById('imagePair');
+            const singleImage = document.getElementById('singleImage');
+
+            groupTitle.textContent = currentGroup.title;
+            imagePair.innerHTML = '';
+            singleImage.innerHTML = '';
+
+            if (currentGroup.images.length === 2) {
+                const container1 = document.createElement('div');
+                container1.className = 'image-container';
+                const img1 = document.createElement('img');
+                img1.dataset.src = currentGroup.images[0];
+                img1.src = currentGroup.images[0] + '!w320';
+                img1.alt = `Image 1 of ${currentGroup.title}`;
+                img1.id = 'image1';
+                container1.appendChild(img1);
+                observer.observe(img1);
+                const container2 = document.createElement('div');
+                container2.className = 'image-container';
+                const img2 = document.createElement('img');
+                img2.dataset.src = currentGroup.images[1];
+                img2.src = currentGroup.images[1] + '!w320';
+                img2.alt = `Image 2 of ${currentGroup.title}`;
+                img2.id = 'image2';
+                container2.appendChild(img2);
+                observer.observe(img2);
+                imagePair.appendChild(container1);
+                imagePair.appendChild(container2);
+            } else if (currentGroup.images.length === 1) {
+                const img = document.createElement('img');
+                img.dataset.src = currentGroup.images[0];
+                img.src = currentGroup.images[0] + '!w320';
+                img.alt = `Single Image of ${currentGroup.title}`;
+                singleImage.appendChild(img);
+                observer.observe(img);
+            }
+        }
+
+        function prevGroup() {
+            currentIndex = (currentIndex - 1 + imageGroups.length) % imageGroups.length;
+            displayGroup();
+        }
+
+        function nextGroup() {
+            currentIndex = (currentIndex + 1) % imageGroups.length;
+            displayGroup();
+        }
+
+        function syncScroll() {
+            const image1 = document.getElementById('image1');
+            const image2 = document.getElementById('image2');
+            if (image1 && image2) {
+                image1.removeEventListener('scroll', syncScrollHandler);
+                image2.removeEventListener('scroll', syncScrollHandler);
+
+                function syncScrollHandler() {
+                    image2.scrollTop = image1.scrollTop;
+                    image2.scrollLeft = image1.scrollLeft;
+                }
+
+                image1.addEventListener('scroll', syncScrollHandler);
+                image2.addEventListener('scroll', syncScrollHandler);
+            }
+        }
+
+        function toggleTransparency() {
+            const image1 = document.getElementById('image1');
+            const image2 = document.getElementById('image2');
+            if (image1 && image2) {
+                let opacity1 = parseFloat(image1.style.opacity);
+                let opacity2 = parseFloat(image2.style.opacity);
+                if (isNaN(opacity1) || opacity1 === 1) {
+                    image1.style.opacity = '0.5';
+                    image2.style.opacity = '0.5';
+                } else {
+                    image1.style.opacity = '1';
+                    image2.style.opacity = '1';
+                }
+            }
+        }
+
+        function showDifference() {
+            const image1 = document.getElementById('image1');
+            const image2 = document.getElementById('image2');
+            if (image1 && image2) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = image1.width;
+                canvas.height = image1.height;
+
+                ctx.drawImage(image1, 0, 0);
+                const imageData1 = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+                ctx.drawImage(image2, 0, 0);
+                const imageData2 = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+                const data1 = imageData1.data;
+                const data2 = imageData2.data;
+
+                for (let i = 0, len = data1.length; i < len; i += 4) {
+                    const diffR = Math.abs(data1[i] - data2[i]);
+                    const diffG = Math.abs(data1[i + 1] - data2[i + 1]);
+                    const diffB = Math.abs(data1[i + 2] - data2[i + 2]);
+
+                    data1[i] = diffR;
+                    data1[i + 1] = diffG;
+                    data1[i + 2] = diffB;
+                    data1[i + 3] = 255;
+                }
+
+                ctx.putImageData(imageData1, 0, 0);
+
+                const diffImage = document.createElement('img');
+                diffImage.src = canvas.toDataURL();
+                document.body.appendChild(diffImage);
+            } else {
+                alert('当前组只有一张图片，无法进行差异对比');
+            }
+        }
+
+        function zoomIn() {
+            scale += 0.1;
+            applyZoom();
+        }
+
+        function zoomOut() {
+            scale = Math.max(0.1, scale - 0.1);
+            applyZoom();
+        }
+
+        function resetZoom() {
+            scale = 1;
+            translateX = [0, 0];
+            translateY = [0, 0];
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const image1 = document.getElementById('image1');
+            const image2 = document.getElementById('image2');
+            if (image1 && image2) {
+                image1.style.transform = `scale(${scale}) translate(${translateX[0]}px, ${translateY[0]}px)`;
+                image2.style.transform = `scale(${scale}) translate(${translateX[1]}px, ${translateY[1]}px)`;
+            }
+        }
+
+        function startDrag(e, index) {
+            isDragging[index] = true;
+            startX[index] = e.clientX || e.touches[0].clientX;
+            startY[index] = e.clientY || e.touches[0].clientY;
+            startTranslateX[index] = translateX[index];
+            startTranslateY[index] = translateY[index];
+        }
+
+        function drag(e, index) {
+            if (isDragging[index]) {
+                const x = e.clientX || e.touches[0].clientX;
+                const y = e.clientY || e.touches[0].clientY;
+                const img = document.getElementById(index === 0? 'image1' : 'image2');
+                const container = img.parentNode;
+                const imgWidth = img.offsetWidth * scale;
+                const imgHeight = img.offsetHeight * scale;
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
+                let newTranslateX = startTranslateX[index] + (x - startX[index]);
+                let newTranslateY = startTranslateY[index] + (y - startY[index]);
+
+                // 限制水平方向拖动
+                if (newTranslateX > 0) {
+                    newTranslateX = 0;
+                } else if (imgWidth + newTranslateX < containerWidth) {
+                    newTranslateX = containerWidth - imgWidth;
+                }
+
+                // 限制垂直方向拖动
+                if (newTranslateY > 0) {
+                    newTranslateY = 0;
+                } else if (imgHeight + newTranslateY < containerHeight) {
+                    newTranslateY = containerHeight - imgHeight;
+                }
+
+                translateX[index] = newTranslateX;
+                translateY[index] = newTranslateY;
+                applyZoom();
+            }
+        }
+
+        function endDrag(index) {
+            isDragging[index] = false;
+        }
+
+        displayGroup();
+
+        const imagePair = document.getElementById('imagePair');
+        imagePair.addEventListener('mousedown', (e) => startDrag(e, 0));
+        imagePair.addEventListener('touchstart', (e) => startDrag(e, 0));
+        imagePair.addEventListener('mousemove', (e) => drag(e, 0));
+        imagePair.addEventListener('touchmove', (e) => drag(e, 0));
+        imagePair.addEventListener('mouseup', () => endDrag(0));
+        imagePair.addEventListener('touchend', () => endDrag(0));
+        imagePair.addEventListener('mousedown', (e) => startDrag(e, 1));
+        imagePair.addEventListener('touchstart', (e) => startDrag(e, 1));
+        imagePair.addEventListener('mousemove', (e) => drag(e, 1));
+        imagePair.addEventListener('touchmove', (e) => drag(e, 1));
+        imagePair.addEventListener('mouseup', () => endDrag(1));
+        imagePair.addEventListener('touchend', () => endDrag(1));
+    </script>
+</body>
+
+</html>
