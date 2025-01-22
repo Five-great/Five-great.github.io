@@ -303,23 +303,23 @@ let imageGroups=[
     },
 
     {
-        title: "1%E4%B8%AD%E6%A1%8640x40cm-1.jpg",
+        title: "1中框40x40cm-1.jpg",
         images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%AD%E6%A1%8640x40cm-1.jpg"]
     },
     {
-        title: "1%E4%B8%AD%E6%A1%8640x40cm-2.jpg",
+        title: "1中框40x40cm-2.jpg",
         images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%AD%E6%A1%8640x40cm-2.jpg"]
     },
     {
-        title: "1%E4%B8%BB%E6%A1%8660x90cm.jpg",
+        title: "1主框60x90cm.jpg",
         images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E4%B8%BB%E6%A1%8660x90cm.jpg"]
     },
     {
-        title: "1%E6%91%86%E5%8F%B018x23cm.jpg",
+        title: "1摆台18x23cm.jpg",
         images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E6%91%86%E5%8F%B018x23cm.jpg"]
     },
     {
-        title: "1%E6%91%86%E5%8F%B023x18cm.jpg",
+        title: "1摆台23x18cm.jpg",
         images: ["https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097057/1%E6%91%86%E5%8F%B023x18cm.jpg"]
     },
     {
@@ -539,8 +539,10 @@ Object.keys(imageGMap).forEach((key)=>{
         function applyZoom() {
             const image1 = document.getElementById('image1');
             const image2 = document.getElementById('image2');
-            if (image1 && image2) {
+            if (image1) {
                 image1.style.transform = `scale(${scale}) translate(${translateX[0]}px, ${translateY[0]}px)`;
+            }
+            if(image2){
                 image2.style.transform = `scale(${scale}) translate(${translateX[1]}px, ${translateY[1]}px)`;
             }
         }
