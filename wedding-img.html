@@ -589,6 +589,9 @@
         let isPinching = false;
         let startDistance = 0;
         let startScale = 0;
+        // 新增：定义灵敏度基础值和调节系数
+const BASE_SENSITIVITY = 1;
+const SENSITIVITY_ADJUSTMENT = 0.2;
 
         function showOriginalImage() {
             const currentGroup = imageGroups[currentIndex];
@@ -713,62 +716,57 @@
         }
 
         // 拖动或缩放弹窗图片
-        function popupDrag(e) {
-            if (isPinching) {
-                if (e.touches.length === 2) {
-                    const dx = e.touches[0].clientX - e.touches[1].clientX;
-                    const dy = e.touches[0].clientY - e.touches[1].clientY;
-                    const currentDistance = Math.sqrt(dx * dx + dy * dy);
-                    const scaleFactor = currentDistance / startDistance;
-                    popupScale = startScale * scaleFactor;
-                    applyPopupZoom();
-                }
-            } else if (isPopupDragging) {
-                const x = e.clientX || e.touches[0].clientX;
-                const y = e.clientY || e.touches[0].clientY;
-
-                // 根据缩放比例调整拖动灵敏度
-                const sensitivityFactor = 1 / popupScale;
-
-                let newTranslateX = popupStartTranslateX + (x - popupStartX) * sensitivityFactor;
-                let newTranslateY = popupStartTranslateY + (y - popupStartY) * sensitivityFactor;
-
-                // 获取弹窗和图片元素
-                const popupContent = document.querySelector('.popup-content');
-                const originalImage1 = document.getElementById('originalImage1');
-
-                const popupWidth = popupContent.offsetWidth;
-                const popupHeight = popupContent.offsetHeight;
-                const imgWidth = originalImage1.naturalWidth * popupScale;
-                const imgHeight = originalImage1.naturalHeight * popupScale;
-
-                // 优化水平方向拖动边界
-                if (imgWidth > popupWidth) {
-                    if (newTranslateX > 0) {
-                        newTranslateX = 0;
-                    } else if (imgWidth + newTranslateX < popupWidth) {
-                        newTranslateX = popupWidth - imgWidth;
-                    }
-                } else {
-                    newTranslateX = 0;
-                }
-
-                // 优化垂直方向拖动边界
-                if (imgHeight > popupHeight) {
-                    if (newTranslateY > 0) {
-                        newTranslateY = 0;
-                    } else if (imgHeight + newTranslateY < popupHeight) {
-                        newTranslateY = popupHeight - imgHeight;
-                    }
-                } else {
-                    newTranslateY = 0;
-                }
-
-                popupTranslateX = newTranslateX;
-                popupTranslateY = newTranslateY;
-                applyPopupZoom();
-            }
+function popupDrag(e) {
+    if (isPinching) {
+        if (e.touches.length === 2) {
+            const dx = e.touches[0].clientX - e.touches[1].clientX;
+            const dy = e.touches[0].clientY - e.touches[1].clientY;
+            const currentDistance = Math.sqrt(dx * dx + dy * dy);
+            const scaleFactor = currentDistance / startDistance;
+            popupScale = startScale * scaleFactor;
+            applyPopupZoom();
         }
+    } else if (isPopupDragging) {
+        const x = e.clientX || e.touches[0].clientX;
+        const y = e.clientY || e.touches[0].clientY;
+
+        // 根据缩放比例调整拖动灵敏度
+        const sensitivityFactor = BASE_SENSITIVITY / (1 + SENSITIVITY_ADJUSTMENT * (popupScale - 1));
+
+        let newTranslateX = popupStartTranslateX + (x - popupStartX) * sensitivityFactor;
+        let newTranslateY = popupStartTranslateY + (y - popupStartY) * sensitivityFactor;
+
+        // 获取弹窗和图片元素
+        const popupContent = document.querySelector('.popup-content');
+        const originalImage1 = document.getElementById('originalImage1');
+
+        const popupWidth = popupContent.offsetWidth;
+        const popupHeight = popupContent.offsetHeight;
+        const imgWidth = originalImage1.naturalWidth * popupScale;
+        const imgHeight = originalImage1.naturalHeight * popupScale;
+
+        // 更精准的水平方向拖动边界处理
+        if (imgWidth > popupWidth) {
+            const maxTranslateX = (imgWidth - popupWidth) / 2;
+            newTranslateX = Math.min(Math.max(newTranslateX, -maxTranslateX), maxTranslateX);
+        } else {
+            newTranslateX = 0;
+        }
+
+        // 更精准的垂直方向拖动边界处理
+        if (imgHeight > popupHeight) {
+            const maxTranslateY = (imgHeight - popupHeight) / 2;
+            newTranslateY = Math.min(Math.max(newTranslateY, -maxTranslateY), maxTranslateY);
+        } else {
+            newTranslateY = 0;
+        }
+
+        popupTranslateX = newTranslateX;
+        popupTranslateY = newTranslateY;
+        applyPopupZoom();
+    }
+}
+
 
 
         // function popupDrag(e) {
