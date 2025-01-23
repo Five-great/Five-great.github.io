@@ -196,8 +196,8 @@ button {
 </head>
 
 <body>
+     点击下列缩略图跳转指定图片
     <div class="image-group-list-box">
-        点击下列缩略图跳转指定图片
         <div class="image-group-list" id="imageGroupList">
         </div>
     </div>
@@ -653,9 +653,23 @@ function showOriginalImage() {
         originalImage2.style.opacity = 1;
 
         popup.style.display = 'block';
+        disablePageZoom()
     }
 }
 
+function disablePageZoom() {
+    const metaViewport = document.querySelector('meta[name="viewport"]');
+    if (metaViewport) {
+        metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    }
+}
+
+function enablePageZoom() {
+    const metaViewport = document.querySelector('meta[name="viewport"]');
+    if (metaViewport) {
+        metaViewport.content = 'width=device-width, initial-scale=1.0';
+    }
+}
 function resetPopup(){
     // 重置弹窗图片的缩放和位置
         popupScale = 1;
@@ -688,6 +702,8 @@ function oldPopup(){
 function closePopup() {
     const popup = document.getElementById('popup');
     popup.style.display = 'none';
+    // 恢复页面缩放
+    enablePageZoom();
 }
 
 // 弹窗图片放大
