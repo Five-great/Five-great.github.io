@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图片对比工具</title>
     <style>
         /* 通用按钮样式 */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    outline: none;
-}
-       .image-group {
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+
+        .image-group {
             margin: 20px;
         }
 
-       .image-pair {
+        .image-pair {
             display: flex;
-           
+
             flex-wrap: wrap;
             justify-content: space-around;
         }
 
-       .image-container {
+        .image-container {
             position: relative;
             overflow: hidden;
             width: 49%;
             box-sizing: border-box;
         }
 
-       .image-container img {
+        .image-container img {
             border: 2px solid rgb(107, 106, 106);
             box-sizing: border-box;
             cursor: pointer;
@@ -44,7 +46,7 @@ button {
             height: auto;
         }
 
-       .single-image img {
+        .single-image img {
             border: 2px solid rgb(107, 106, 106);
             box-sizing: border-box;
             cursor: pointer;
@@ -55,35 +57,39 @@ button {
             height: auto;
         }
 
-       .controls {
+        .controls {
             margin-top: 10px;
         }
 
         button {
             margin-right: 10px;
         }
-/* 主操作按钮样式 */
-.controls button {
-    background-color: #007BFF;
-    color: white;
-}
 
-.controls button:hover {
-    background-color: #0056b3;
-}
-.image-group-list-box{
-    position: relative;
-    max-width: 100%;
-    padding-left: 10px;
+        /* 主操作按钮样式 */
+        .controls button {
+            margin-bottom: 10px; 
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        .image-group-list-box {
+            position: relative;
+            max-width: 100%;
+            padding-left: 10px;
             overflow: auto;
-}
-       .image-group-list {
+        }
+
+        .image-group-list {
             display: flex;
             flex-wrap: nowrap;
             box-sizing: border-box;
         }
 
-       .image-group-list img {
+        .image-group-list img {
             max-width: 64px;
             max-height: 64px;
             margin-right: 6px;
@@ -94,7 +100,7 @@ button {
             box-sizing: border-box;
         }
 
-       .popup {
+        .popup {
             display: none;
             position: fixed;
             top: 0;
@@ -106,88 +112,99 @@ button {
         }
 
 
-.popup-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 15px;
-    min-width: 90vw;
-    max-width: 90vw;
-    min-height: 90vh;
-    max-height: 90vh;
-    overflow: hidden;
-    /* 新增样式，设置相对定位 */
-    position: relative; 
-}
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 15px;
+            min-width: 90vw;
+            max-width: 90vw;
+            min-height: 90vh;
+            max-height: 90vh;
+            overflow: hidden;
+            /* 新增样式，设置相对定位 */
+            position: relative;
+        }
 
-.close {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    background: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    z-index: 1001;
-    transition: color 0.3s ease;
-}
+        .close {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            background: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
 
-.close:hover {
-    color: #dc3545;
-}
+        .close:hover {
+            color: #dc3545;
+        }
+
+        .compare-btn,
+        .old-btn,
+        .reset-btn {
+            background-color: #28a745;
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+            display: none;
+            /* 默认隐藏对比按钮 */
+        }
+
+        .compare-btn:hover,
+        .old-btn:hover,
+        .reset-btn:hover {
+            background-color: #218838;
+        }
+
+        .old-btn {
+            left: 100px;
+        }
+
+        .reset-btn {
+            left: 220px;
+            display: block;
+        }
 
 
+        #originalImage1,
+        #originalImage2 {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            /* 使图片居中并初始缩放为 1 */
+            transform-origin: center center;
+            /* 设置缩放中心点为图片中心 */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
 
-.compare-btn,.old-btn,.reset-btn{
-    background-color: #28a745;
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1001;
-    display: none; /* 默认隐藏对比按钮 */
-}
-.compare-btn:hover,.old-btn:hover,.reset-btn:hover {
-    background-color: #218838;
-}
-.old-btn{
-    left: 100px;
-}
-.reset-btn{
-    left: 220px;
-    display: block;
-}
-
-
-#originalImage1,
-#originalImage2 {
-    max-width: 100%;
-    max-height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1); /* 使图片居中并初始缩放为 1 */
-    transform-origin: center center; /* 设置缩放中心点为图片中心 */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-#originalImage2 {
-    z-index: 1; /* 让第二张图覆盖第一张图 */
-}
+        #originalImage2 {
+            z-index: 1;
+            /* 让第二张图覆盖第一张图 */
+        }
 
         @media screen and (max-width: 767px) {
             button {
-    padding: 4px 8px;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    outline: none;
-}
-           .image-container {
+                padding: 4px 4px;
+                border: none;
+                border-radius: 5px;
+                font-size: 12px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                outline: none;
+            }
+
+            .image-container {
                 overflow: hidden;
                 width: 85%;
             }
@@ -196,12 +213,12 @@ button {
 </head>
 
 <body>
-     点击下列缩略图跳转指定图片
+    点击下列缩略图跳转指定图片
     <div class="image-group-list-box">
         <div class="image-group-list" id="imageGroupList">
         </div>
     </div>
-    
+
 
     <div class="image-group" id="currentImageGroup">
         <div class="controls">
@@ -212,6 +229,7 @@ button {
             <button onclick="zoomIn()">放大</button>
             <button onclick="zoomOut()">缩小</button>
             <button onclick="resetZoom()">复原</button>
+
             <button onclick="showOriginalImage()">查看原图（双击图片）</button>
         </div>
         <h2 id="groupTitle"></h2>
@@ -224,15 +242,15 @@ button {
             <span class="close" onclick="closePopup()">&times;</span>
             <!-- 新增对比按钮 -->
             <button class="compare-btn" onclick="toggleCompare()" style="display: none;" title="透明度50%">对比（半透）</button>
-            <button class="old-btn" onclick="oldPopup()" style="display: none;" title="透明度100%" >切换原片（全透）</button> 
-            <button class="reset-btn" onclick="resetPopup()">复原</button> 
+            <button class="old-btn" onclick="oldPopup()" style="display: none;" title="透明度100%">切换原片（全透）</button>
+            <button class="reset-btn" onclick="resetPopup()">复原</button>
             <img id="originalImage1" src="" alt="Original Image 1">
             <img id="originalImage2" src="" alt="Original Image 2">
         </div>
     </div>
 
     <script>
-       const imageUrlsOld = [
+        const imageUrlsOld = [
             "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF7995.jpg",
             "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8019.jpg",
             "https://erp-new.cdn.yingtaoyun.com/flw/1784/Q2406170015/jx/1097059/DSCF8027.jpg",
@@ -424,6 +442,7 @@ button {
             let imgSrc = item.images.length > 1 ? item.images[1] : item.images[0];
             img1.dataset.src = item.images[0];
             img1.src = imgSrc + '!w320';
+            img1.title = item.title;
             img1.alt = `Image 1 of ${item.title}`;
             img1.onclick = () => {
                 currentIndex = idx;
@@ -466,9 +485,9 @@ button {
                 img1.alt = `Image 1 of ${currentGroup.title}`;
                 img1.id = 'image1';
                 // 添加双击事件监听器
-        img1.ondblclick = () => {
-            showOriginalImage();
-        };
+                img1.ondblclick = () => {
+                    showOriginalImage();
+                };
                 container1.appendChild(img1);
                 observer.observe(img1);
                 const container2 = document.createElement('div');
@@ -479,9 +498,9 @@ button {
                 img2.alt = `Image 2 of ${currentGroup.title}`;
                 img2.id = 'image2';
                 // 添加双击事件监听器
-        img2.ondblclick = () => {
-            showOriginalImage();
-        };
+                img2.ondblclick = () => {
+                    showOriginalImage();
+                };
                 container2.appendChild(img2);
                 observer.observe(img2);
                 imagePair.appendChild(container1);
@@ -492,9 +511,9 @@ button {
                 img.src = currentGroup.images[0] + '!w320';
                 img.alt = `Single Image of ${currentGroup.title}`;
                 // 添加双击事件监听器
-        img.ondblclick = () => {
-            showOriginalImage();
-        };
+                img.ondblclick = () => {
+                    showOriginalImage();
+                };
                 singleImage.appendChild(img);
                 observer.observe(img);
             }
@@ -528,7 +547,7 @@ button {
         }
 
 
-      
+
         function zoomIn() {
             scale += 0.1;
             applyZoom();
@@ -557,267 +576,261 @@ button {
             }
         }
 
-        function startDrag(e, index) {
-            isDragging[index] = true;
-            startX[index] = e.clientX || e.touches[0].clientX;
-            startY[index] = e.clientY || e.touches[0].clientY;
-            startTranslateX[index] = translateX[index];
-            startTranslateY[index] = translateY[index];
+
+        // 弹窗图片的缩放、位置和拖动状态
+        let popupScale = 1;
+        let popupTranslateX = 0;
+        let popupTranslateY = 0;
+        let isPopupDragging = false;
+        let popupStartX = 0;
+        let popupStartY = 0;
+        let popupStartTranslateX = 0;
+        let popupStartTranslateY = 0;
+        let isPinching = false;
+        let startDistance = 0;
+        let startScale = 0;
+
+        function showOriginalImage() {
+            const currentGroup = imageGroups[currentIndex];
+            const popup = document.getElementById('popup');
+            const originalImage1 = document.getElementById('originalImage1');
+            const originalImage2 = document.getElementById('originalImage2');
+            const compareBtn = document.querySelector('.compare-btn');
+            const oldBtn = document.querySelector('.old-btn');
+
+            if (currentGroup.images.length > 0) {
+                originalImage1.src = currentGroup.images[0];
+                if (currentGroup.images.length > 1) {
+                    originalImage2.style.display = "block"
+                    originalImage2.src = currentGroup.images[1];
+                    compareBtn.style.display = 'block';
+                    oldBtn.style.display = 'block';
+                } else {
+                    originalImage2.style.display = "none"
+                    compareBtn.style.display = 'none';
+                    oldBtn.style.display = 'none';
+                }
+
+                // 重置弹窗图片的缩放和位置
+                popupScale = 1;
+                popupTranslateX = 0;
+                popupTranslateY = 0;
+                applyPopupZoom();
+                originalImage2.style.opacity = 1;
+
+                popup.style.display = 'block';
+                disablePageZoom()
+            }
         }
 
-        function drag(e, index) {
-            if (isDragging[index]) {
+        function disablePageZoom() {
+            const metaViewport = document.querySelector('meta[name="viewport"]');
+            if (metaViewport) {
+                metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+            }
+        }
+
+        function enablePageZoom() {
+            const metaViewport = document.querySelector('meta[name="viewport"]');
+            if (metaViewport) {
+                metaViewport.content = 'width=device-width, initial-scale=1.0';
+            }
+        }
+        function resetPopup() {
+            // 重置弹窗图片的缩放和位置
+            popupScale = 1;
+            popupTranslateX = 0;
+            popupTranslateY = 0;
+            applyPopupZoom();
+            originalImage2.style.opacity = 1;
+        }
+
+        function toggleCompare() {
+            const originalImage2 = document.getElementById('originalImage2');
+            let opacity = parseFloat(originalImage2.style.opacity);
+            if (isNaN(opacity) || opacity === 1) {
+                originalImage2.style.opacity = 0.5;
+            } else {
+                originalImage2.style.opacity = 1;
+            }
+        }
+
+        function oldPopup() {
+            const originalImage2 = document.getElementById('originalImage2');
+            let opacity = parseFloat(originalImage2.style.opacity);
+            if (isNaN(opacity) || opacity === 1) {
+                originalImage2.style.opacity = 0;
+            } else {
+                originalImage2.style.opacity = 1;
+            }
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+            // 恢复页面缩放
+            enablePageZoom();
+        }
+
+        // 弹窗图片放大
+        function popupZoomIn() {
+            popupScale += 0.1;
+            applyPopupZoom();
+        }
+
+        // 弹窗图片缩小
+        function popupZoomOut() {
+            popupScale = Math.max(0.1, popupScale - 0.1);
+            applyPopupZoom();
+        }
+
+        function applyPopupZoom() {
+            const originalImage1 = document.getElementById('originalImage1');
+            const originalImage2 = document.getElementById('originalImage2');
+            if (originalImage1) {
+                originalImage1.style.transform = `translate(-50%, -50%) scale(${popupScale}) translate(${popupTranslateX}px, ${popupTranslateY}px)`;
+            }
+            if (originalImage2) {
+                originalImage2.style.transform = `translate(-50%, -50%) scale(${popupScale}) translate(${popupTranslateX}px, ${popupTranslateY}px)`;
+            }
+        }
+
+        // 开始拖动弹窗图片
+        function popupStartDrag(e) {
+            if (e.touches && e.touches.length === 2) {
+                isPinching = true;
+                const dx = e.touches[0].clientX - e.touches[1].clientX;
+                const dy = e.touches[0].clientY - e.touches[1].clientY;
+                startDistance = Math.sqrt(dx * dx + dy * dy);
+                startScale = popupScale;
+            } else {
+                isPopupDragging = true;
+                popupStartX = e.clientX || e.touches[0].clientX;
+                popupStartY = e.clientY || e.touches[0].clientY;
+                popupStartTranslateX = popupTranslateX;
+                popupStartTranslateY = popupTranslateY;
+            }
+        }
+
+        // 拖动或缩放弹窗图片
+        function popupDrag(e) {
+            if (isPinching) {
+                if (e.touches.length === 2) {
+                    const dx = e.touches[0].clientX - e.touches[1].clientX;
+                    const dy = e.touches[0].clientY - e.touches[1].clientY;
+                    const currentDistance = Math.sqrt(dx * dx + dy * dy);
+                    const scaleFactor = currentDistance / startDistance;
+                    popupScale = startScale * scaleFactor;
+                    applyPopupZoom();
+                }
+            } else if (isPopupDragging) {
                 const x = e.clientX || e.touches[0].clientX;
                 const y = e.clientY || e.touches[0].clientY;
-                const img = document.getElementById(index === 0 ? 'image1' : 'image2');
-                const container = img.parentNode;
-                const imgWidth = img.naturalWidth * scale;
-                const imgHeight = img.naturalHeight * scale;
-                const containerWidth = container.offsetWidth;
-                const containerHeight = container.offsetHeight;
 
-                let newTranslateX = startTranslateX[index] + (x - startX[index]);
-                let newTranslateY = startTranslateY[index] + (y - startY[index]);
+                // 根据缩放比例调整拖动灵敏度
+                const sensitivityFactor = 1 / popupScale;
+
+                let newTranslateX = popupStartTranslateX + (x - popupStartX) * sensitivityFactor;
+                let newTranslateY = popupStartTranslateY + (y - popupStartY) * sensitivityFactor;
+
+                // 获取弹窗和图片元素
+                const popupContent = document.querySelector('.popup-content');
+                const originalImage1 = document.getElementById('originalImage1');
+
+                const popupWidth = popupContent.offsetWidth;
+                const popupHeight = popupContent.offsetHeight;
+                const imgWidth = originalImage1.naturalWidth * popupScale;
+                const imgHeight = originalImage1.naturalHeight * popupScale;
 
                 // 优化水平方向拖动边界
-                if (imgWidth > containerWidth) {
+                if (imgWidth > popupWidth) {
                     if (newTranslateX > 0) {
                         newTranslateX = 0;
-                    } else if (imgWidth + newTranslateX < containerWidth) {
-                        newTranslateX = containerWidth - imgWidth;
+                    } else if (imgWidth + newTranslateX < popupWidth) {
+                        newTranslateX = popupWidth - imgWidth;
                     }
                 } else {
                     newTranslateX = 0;
                 }
 
                 // 优化垂直方向拖动边界
-                if (imgHeight > containerHeight) {
+                if (imgHeight > popupHeight) {
                     if (newTranslateY > 0) {
                         newTranslateY = 0;
-                    } else if (imgHeight + newTranslateY < containerHeight) {
-                        newTranslateY = containerHeight - imgHeight;
+                    } else if (imgHeight + newTranslateY < popupHeight) {
+                        newTranslateY = popupHeight - imgHeight;
                     }
                 } else {
                     newTranslateY = 0;
                 }
 
-                translateX[index] = newTranslateX;
-                translateY[index] = newTranslateY;
-                applyZoom();
+                popupTranslateX = newTranslateX;
+                popupTranslateY = newTranslateY;
+                applyPopupZoom();
             }
         }
 
-        function endDrag(index) {
-            isDragging[index] = false;
+
+        // function popupDrag(e) {
+        //     if (isPinching) {
+        //         if (e.touches.length === 2) {
+        //             const dx = e.touches[0].clientX - e.touches[1].clientX;
+        //             const dy = e.touches[0].clientY - e.touches[1].clientY;
+        //             const currentDistance = Math.sqrt(dx * dx + dy * dy);
+        //             const scaleFactor = currentDistance / startDistance;
+        //             popupScale = startScale * scaleFactor;
+        //             applyPopupZoom();
+        //         }
+        //     } else if (isPopupDragging) {
+        //         const x = e.clientX || e.touches[0].clientX;
+        //         const y = e.clientY || e.touches[0].clientY;
+        //         popupTranslateX = popupStartTranslateX + (x - popupStartX);
+        //         popupTranslateY = popupStartTranslateY + (y - popupStartY);
+        //         applyPopupZoom();
+        //     }
+        // }
+
+        // 结束拖动或缩放弹窗图片
+        function popupEndDrag(e) {
+            isPopupDragging = false;
+            isPinching = false;
         }
 
- // 弹窗图片的缩放、位置和拖动状态
-let popupScale = 1;
-let popupTranslateX = 0;
-let popupTranslateY = 0;
-let isPopupDragging = false;
-let popupStartX = 0;
-let popupStartY = 0;
-let popupStartTranslateX = 0;
-let popupStartTranslateY = 0;
-let isPinching = false;
-let startDistance = 0;
-let startScale = 0;
-
-function showOriginalImage() {
-    const currentGroup = imageGroups[currentIndex];
-    const popup = document.getElementById('popup');
-    const originalImage1 = document.getElementById('originalImage1');
-    const originalImage2 = document.getElementById('originalImage2');
-    const compareBtn = document.querySelector('.compare-btn');
-    const oldBtn = document.querySelector('.old-btn');
-
-    if (currentGroup.images.length > 0) {
-        originalImage1.src = currentGroup.images[0];
-        if (currentGroup.images.length > 1) {
-            originalImage2.style.display= "block"
-            originalImage2.src = currentGroup.images[1];
-            compareBtn.style.display = 'block';
-            oldBtn.style.display = 'block';
-        } else {
-            originalImage2.style.display= "none"
-            compareBtn.style.display = 'none';
-            oldBtn.style.display = 'none';
+        // 处理鼠标滚轮事件
+        function handleWheel(e) {
+            e.preventDefault();
+            const delta = e.deltaY || e.detail || e.wheelDelta;
+            if (delta < 0) {
+                // 向上滚动，放大
+                popupZoomIn();
+            } else {
+                // 向下滚动，缩小
+                popupZoomOut();
+            }
         }
+        // 为弹窗图片添加事件监听器
+        const originalImage1 = document.getElementById('originalImage1');
+        const originalImage2 = document.getElementById('originalImage2');
+        const compareBtn = document.querySelector('.compare-btn');
 
-        // 重置弹窗图片的缩放和位置
-        popupScale = 1;
-        popupTranslateX = 0;
-        popupTranslateY = 0;
-        applyPopupZoom();
-        originalImage2.style.opacity = 1;
+        originalImage1.addEventListener('mousedown', popupStartDrag);
+        originalImage1.addEventListener('touchstart', popupStartDrag);
+        originalImage2.addEventListener('mousedown', popupStartDrag);
+        originalImage2.addEventListener('touchstart', popupStartDrag);
 
-        popup.style.display = 'block';
-        disablePageZoom()
-    }
-}
+        document.addEventListener('mousemove', popupDrag);
+        document.addEventListener('touchmove', popupDrag);
 
-function disablePageZoom() {
-    const metaViewport = document.querySelector('meta[name="viewport"]');
-    if (metaViewport) {
-        metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-    }
-}
+        document.addEventListener('mouseup', popupEndDrag);
+        document.addEventListener('touchend', popupEndDrag);
 
-function enablePageZoom() {
-    const metaViewport = document.querySelector('meta[name="viewport"]');
-    if (metaViewport) {
-        metaViewport.content = 'width=device-width, initial-scale=1.0';
-    }
-}
-function resetPopup(){
-    // 重置弹窗图片的缩放和位置
-        popupScale = 1;
-        popupTranslateX = 0;
-        popupTranslateY = 0;
-        applyPopupZoom();
-        originalImage2.style.opacity = 1;
-}
-
-function toggleCompare() {
-    const originalImage2 = document.getElementById('originalImage2');
-    let opacity = parseFloat(originalImage2.style.opacity);
-    if (isNaN(opacity) || opacity === 1) {
-        originalImage2.style.opacity = 0.5;
-    } else {
-        originalImage2.style.opacity = 1;
-    }
-}
-
-function oldPopup(){
-    const originalImage2 = document.getElementById('originalImage2');
-    let opacity = parseFloat(originalImage2.style.opacity);
-    if (isNaN(opacity) || opacity === 1) {
-        originalImage2.style.opacity = 0;
-    } else {
-        originalImage2.style.opacity = 1;
-    }
-}
-
-function closePopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'none';
-    // 恢复页面缩放
-    enablePageZoom();
-}
-
-// 弹窗图片放大
-function popupZoomIn() {
-    popupScale += 0.1;
-    applyPopupZoom();
-}
-
-// 弹窗图片缩小
-function popupZoomOut() {
-    popupScale = Math.max(0.1, popupScale - 0.1);
-    applyPopupZoom();
-}
-
-function applyPopupZoom() {
-    const originalImage1 = document.getElementById('originalImage1');
-    const originalImage2 = document.getElementById('originalImage2');
-    if (originalImage1) {
-        originalImage1.style.transform = `translate(-50%, -50%) scale(${popupScale}) translate(${popupTranslateX}px, ${popupTranslateY}px)`;
-    }
-    if (originalImage2) {
-        originalImage2.style.transform = `translate(-50%, -50%) scale(${popupScale}) translate(${popupTranslateX}px, ${popupTranslateY}px)`;
-    }
-}
-
-// 开始拖动弹窗图片
-function popupStartDrag(e) {
-    if (e.touches && e.touches.length === 2) {
-        isPinching = true;
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        startDistance = Math.sqrt(dx * dx + dy * dy);
-        startScale = popupScale;
-    } else {
-        isPopupDragging = true;
-        popupStartX = e.clientX || e.touches[0].clientX;
-        popupStartY = e.clientY || e.touches[0].clientY;
-        popupStartTranslateX = popupTranslateX;
-        popupStartTranslateY = popupTranslateY;
-    }
-}
-
-function popupDrag(e) {
-    if (isPinching) {
-        if (e.touches.length === 2) {
-            const dx = e.touches[0].clientX - e.touches[1].clientX;
-            const dy = e.touches[0].clientY - e.touches[1].clientY;
-            const currentDistance = Math.sqrt(dx * dx + dy * dy);
-            const scaleFactor = currentDistance / startDistance;
-            popupScale = startScale * scaleFactor;
-            applyPopupZoom();
-        }
-    } else if (isPopupDragging) {
-        const x = e.clientX || e.touches[0].clientX;
-        const y = e.clientY || e.touches[0].clientY;
-        popupTranslateX = popupStartTranslateX + (x - popupStartX);
-        popupTranslateY = popupStartTranslateY + (y - popupStartY);
-        applyPopupZoom();
-    }
-}
-
-// 结束拖动或缩放弹窗图片
-function popupEndDrag(e) {
-    isPopupDragging = false;
-    isPinching = false;
-}
-
-// 处理鼠标滚轮事件
-function handleWheel(e) {
-    e.preventDefault();
-    const delta = e.deltaY || e.detail || e.wheelDelta;
-    if (delta < 0) {
-        // 向上滚动，放大
-        popupZoomIn();
-    } else {
-        // 向下滚动，缩小
-        popupZoomOut();
-    }
-}
-// 为弹窗图片添加事件监听器
-const originalImage1 = document.getElementById('originalImage1');
-const originalImage2 = document.getElementById('originalImage2');
-const compareBtn = document.querySelector('.compare-btn');
-
-originalImage1.addEventListener('mousedown', popupStartDrag);
-originalImage1.addEventListener('touchstart', popupStartDrag);
-originalImage2.addEventListener('mousedown', popupStartDrag);
-originalImage2.addEventListener('touchstart', popupStartDrag);
-
-document.addEventListener('mousemove', popupDrag);
-document.addEventListener('touchmove', popupDrag);
-
-document.addEventListener('mouseup', popupEndDrag);
-document.addEventListener('touchend', popupEndDrag);
-
-originalImage1.addEventListener('wheel', handleWheel);
-originalImage2.addEventListener('wheel', handleWheel);
+        originalImage1.addEventListener('wheel', handleWheel);
+        originalImage2.addEventListener('wheel', handleWheel);
 
 
         displayGroup();
 
-        const imagePair = document.getElementById('imagePair');
-        imagePair.addEventListener('mousedown', (e) => startDrag(e, 0));
-        imagePair.addEventListener('touchstart', (e) => startDrag(e, 0));
-        imagePair.addEventListener('mousemove', (e) => drag(e, 0));
-        imagePair.addEventListener('touchmove', (e) => drag(e, 0));
-        imagePair.addEventListener('mouseup', () => endDrag(0));
-        imagePair.addEventListener('touchend', () => endDrag(0));
-        imagePair.addEventListener('mousedown', (e) => startDrag(e, 1));
-        imagePair.addEventListener('touchstart', (e) => startDrag(e, 1));
-        imagePair.addEventListener('mousemove', (e) => drag(e, 1));
-        imagePair.addEventListener('touchmove', (e) => drag(e, 1));
-        imagePair.addEventListener('mouseup', () => endDrag(1));
-        imagePair.addEventListener('touchend', () => endDrag(1));
+        
     </script>
 </body>
 
